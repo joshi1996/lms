@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/background">
+
+        <RelativeLayout android:id="@+id/headerview"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/colorPrimaryDark"
+            >
+
+            <LinearLayout android:id="@+id/ll_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+
+                >
+
+
+                <ImageView
+                    android:id="@+id/iv_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_left_arrow"/>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:layout_marginLeft="2dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/iv_back"
+                    android:text="@string/back"
+                    android:textColor="@color/white"
+
+                    />
+            </LinearLayout>
+
+
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:id="@+id/tv_header"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+
+                android:text="@string/login_title"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+
+                />
+
+
+        </RelativeLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/medium_margin"
+            android:layout_centerVertical="true"
+            android:layout_below="@+id/headerview"
+            android:text="@string/description"
+            android:textColor="@color/blue"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:textStyle="bold"
+
+
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/medium_margin"
+            android:layout_centerVertical="true"
+            android:layout_below="@+id/tv_desc"
+            android:layout_marginRight="@dimen/medium_margin"
+            android:text=""
+            android:textColor="@color/white"
+            android:layout_marginTop="@dimen/medium_margin"
+
+
+            />
+    </RelativeLayout>
+    <data>
+    </data>
+</layout>

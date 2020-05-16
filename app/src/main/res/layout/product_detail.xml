@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/background"
+
+
+        >
+
+        <ImageView android:id="@+id/iv_cover"
+            android:layout_width="fill_parent"
+            android:layout_height="220dp"
+            android:scaleType="fitXY"
+
+
+            ></ImageView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginRight="@dimen/margin_10"
+            android:layout_marginLeft="@dimen/margin_10"
+            android:layout_marginTop="@dimen/margin_20">
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_left_arrow"
+                android:layout_alignParentLeft="true"
+                />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/back"
+                android:gravity="center"
+                android:layout_toRightOf="@+id/iv_back"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_marginRight="@dimen/margin_10"
+
+                android:layout_centerVertical="true"
+                />
+            <LinearLayout
+
+
+                android:layout_width="match_parent"
+                android:id="@+id/sv_search"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/tv_back"
+                android:layout_weight="1"
+
+                android:layout_toLeftOf="@+id/iv_cart"
+                android:layout_height="35dp"
+                android:layout_marginRight="@dimen/margin_5"
+                android:background="@drawable/rounded_search">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/margin_10"
+                    android:src="@drawable/search_on"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/search"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/margin_10"
+
+                    />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/iv_cart"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/cart_on"
+                android:layout_marginLeft="@dimen/medium_margin"
+
+                android:layout_marginRight="@dimen/margin_5"
+                />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_cartvalue"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:text="1" android:visibility="gone"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="10sp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/rounded_textview_red"/>
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/ll_curve"
+            android:layout_width="wrap_content"
+            android:layout_height="120dp"
+            android:src="@drawable/map_curve"
+            android:layout_marginTop="110dp"/>
+
+
+
+        <LinearLayout android:id="@+id/ll_detail"
+            android:layout_below="@+id/ll_curve"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-20dp"
+            android:background="@color/background"
+     android:paddingLeft="@dimen/medium_margin"
+            android:paddingRight="@dimen/medium_margin"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/textsize_14sp"
+                android:text=""
+                android:textColor="@color/white"
+                android:layout_marginTop="@dimen/margin_10"
+                android:textStyle="bold"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_shoptype"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/textsize_12sp"
+android:text=""
+                android:textColor="@color/white"
+                android:layout_marginTop="@dimen/margin_10"/>
+
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_10">
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_centerVertical="true"
+
+                    android:src="@drawable/location"/>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_10"
+                    android:textSize="@dimen/textsize_12sp"
+                    android:layout_centerVertical="true"
+
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="@dimen/margin_10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                >
+
+                <ImageView
+                    android:id="@+id/iv_rating"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:src="@drawable/rating" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_rating"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/iv_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_10"
+                    android:textSize="@dimen/textsize_12sp"
+                    android:text=""
+
+                    android:textColor="@color/blue" />
+
+
+                <ImageView
+                    android:id="@+id/iv_time"
+                    android:layout_width="15dp"
+                    android:layout_centerVertical="true"
+                    android:layout_centerInParent="true"
+                    android:layout_height="15dp"
+                    android:src="@drawable/ic_access_time"/>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_timing"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/iv_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_10"
+                    android:textSize="@dimen/textsize_12sp"
+                    android:text=""
+
+                    android:textColor="@color/white" />
+            </RelativeLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="2dp"
+
+                android:background="@color/hint_gray"/>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/iv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                 android:layout_marginTop="@dimen/margin_10"
+                android:textSize="@dimen/textsize_12sp"
+                android:text="@string/product_cateogry"
+
+                android:textColor="@color/white" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvh_cateogrylist"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/margin_5"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:layout_marginLeft="@dimen/margin_10"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="@dimen/margin_5"
+                android:background="@color/hint_gray"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_item"
+                android:layout_marginLeft="@dimen/margin_10"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/medium_margin"/>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <data>
+
+    </data>
+</layout>

@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:fillViewport="true">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+
+            >
+
+
+            <include
+                android:id="@+id/headerview"
+                layout="@layout/headerlayout"
+                />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="@dimen/medium_margin"
+    android:gravity="center"
+    android:layout_marginRight="@dimen/medium_margin"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+android:gravity="center"     android:orientation="vertical"   >
+
+
+        <RelativeLayout
+            android:id="@+id/rl_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/medium_margin" android:layout_marginTop="@dimen/size_20"
+
+            android:layout_marginRight="@dimen/size_30"
+            android:orientation="vertical"
+            >
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                app:civ_border_color="@color/white"
+                app:civ_border_width="1dp"
+                android:layout_alignParentLeft="true"
+                android:visibility="visible"
+                android:src="@drawable/ic_user"
+                android:tint="@color/linecolor"
+
+                app:civ_circle_background_color="@color/white" />
+
+
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/infirstname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/fullName"
+        android:layout_marginTop="@dimen/medium_margin"
+
+        android:theme="@style/TextLabel"
+        android:layout_below="@+id/tv_reg"
+        android:imeOptions="actionNext"
+        android:inputType="text"
+        android:paddingRight="@dimen/margin_15"
+        android:background="@drawable/rounde_rectangle"
+        android:drawablePadding="@dimen/padding_10"
+
+        android:drawableLeft="@drawable/ic_user"
+        android:textColor="@color/textcolor"/>
+
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/inmobileno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/mobileno"
+        android:imeOptions="actionNext"
+        android:background="@drawable/rounde_rectangle"
+
+        android:inputType="number|textNoSuggestions"
+        android:paddingRight="@dimen/margin_15"
+        android:theme="@style/TextLabel"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:enabled="false"
+        android:drawablePadding="@dimen/padding_10"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:drawableTint="@color/black"
+
+        android:drawableLeft="@drawable/ic_phone"
+        android:textColor="@color/textcolor" />
+
+
+
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/inemailaddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/emailaddress"
+        android:imeOptions="actionNext"
+        android:background="@drawable/rounde_rectangle"
+
+        android:inputType="textEmailAddress|textNoSuggestions"
+        android:paddingRight="@dimen/margin_15"
+        android:theme="@style/TextLabel"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:enabled="false"
+        android:drawablePadding="@dimen/padding_10"
+        android:layout_marginTop="@dimen/medium_margin"
+
+        android:drawableLeft="@drawable/email"
+        android:drawableTint="@color/black"
+
+        android:textColor="@color/textcolor" />
+
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/inaddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/address"
+        android:imeOptions="actionNext"
+        android:background="@drawable/rounde_rectangle"
+        android:drawableTint="@color/black"
+        android:minLines="2"
+        android:inputType="textPostalAddress|textNoSuggestions|textMultiLine"
+        android:paddingRight="@dimen/margin_15"
+        android:theme="@style/TextLabel"
+
+        android:drawablePadding="@dimen/padding_10"
+        android:layout_marginTop="@dimen/medium_margin"
+
+        android:drawableLeft="@drawable/ic_address"
+
+        android:textColor="@color/textcolor" />
+
+
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/inzipcode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/zipcode"
+        android:imeOptions="actionNext"
+        android:background="@drawable/rounde_rectangle"
+        android:drawableTint="@color/black"
+
+        android:inputType="number|textNoSuggestions"
+        android:paddingRight="@dimen/margin_15"
+        android:theme="@style/TextLabel"
+
+        android:drawablePadding="@dimen/padding_10"
+        android:layout_marginTop="@dimen/medium_margin"
+
+        android:drawableLeft="@drawable/ic_address"
+
+        android:textColor="@color/textcolor" />
+
+
+
+
+    <fr.ganfra.materialspinner.MaterialSpinner
+        android:id="@+id/sp_country"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:ms_multiline="false"
+        android:layout_below="@+id/tvselectreason"
+        app:ms_hint="Select Country"
+        app:ms_floatingLabelColor="@color/black"
+        app:ms_enableFloatingLabel="false"
+        app:ms_enableErrorLabel="false"
+        app:ms_baseColor="@color/black"
+        app:ms_highlightColor="@color/black"
+        app:ms_errorColor="@color/black"
+        app:ms_thickness=".5dp"
+        app:ms_hintColor="@color/gray"
+        app:ms_arrowColor="@color/black"
+        app:ms_arrowSize="16dp"
+        app:ms_alignLabels="false"
+        android:textSize="@dimen/textsize_16sp"
+        android:layout_marginTop="@dimen/medium_margin"
+
+        android:layout_marginBottom="@dimen/margin_10"
+        />
+    <fr.ganfra.materialspinner.MaterialSpinner
+        android:id="@+id/sp_state"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:ms_multiline="false"
+        android:layout_below="@+id/tvselectreason"
+        app:ms_hint="Select State"
+        app:ms_floatingLabelColor="@color/black"
+        app:ms_enableFloatingLabel="false"
+        app:ms_enableErrorLabel="false"
+        app:ms_baseColor="@color/black"
+        app:ms_highlightColor="@color/black"
+        app:ms_errorColor="@color/black"
+        app:ms_thickness=".5dp"
+        app:ms_hintColor="@color/light_gray"
+        app:ms_arrowColor="@color/black"
+        app:ms_arrowSize="16dp"
+        app:ms_alignLabels="false"
+        android:textSize="@dimen/textsize_16sp"
+        android:layout_marginTop="@dimen/medium_margin"
+
+        android:layout_marginBottom="@dimen/margin_10"
+        />
+
+
+    <fr.ganfra.materialspinner.MaterialSpinner
+        android:id="@+id/sp_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:ms_multiline="false"
+        android:layout_below="@+id/tvselectreason"
+        app:ms_hint="Select City"
+        app:ms_floatingLabelColor="@color/black"
+        app:ms_enableFloatingLabel="false"
+        app:ms_enableErrorLabel="false"
+        app:ms_baseColor="@color/black"
+        app:ms_highlightColor="@color/black"
+        app:ms_errorColor="@color/black"
+        app:ms_thickness=".5dp"
+        app:ms_hintColor="@color/light_gray"
+        app:ms_arrowColor="@color/black"
+        app:ms_arrowSize="16dp"
+        app:ms_alignLabels="false"
+        android:textSize="@dimen/textsize_16sp"
+        android:layout_marginTop="@dimen/medium_margin"
+
+        android:layout_marginBottom="@dimen/margin_10"
+        />
+
+
+
+
+
+
+
+
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_update"
+                style="@style/App_ButtonlineblueStyle"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/margin_20"
+                android:text="@string/updateprofile"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:layout_marginBottom="@dimen/margin_20"
+                />
+
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <data>
+
+    </data>
+</layout>

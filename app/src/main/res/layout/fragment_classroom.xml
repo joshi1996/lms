@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white"
+
+
+        >
+
+
+        <include android:id="@+id/ll_header"
+            layout="@layout/headerlayout"/>
+
+
+        <LinearLayout android:id="@+id/llnocourse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@+id/ll_header"
+            android:visibility="gone"
+            >
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_welcome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text=""
+                android:layout_marginTop="@dimen/textsize_30sp"
+                android:textColor="@color/textcolor"
+                android:lineSpacingExtra="@dimen/margin_10"
+                android:layout_marginBottom="@dimen/margin_30"
+                android:textSize="@dimen/textsize_20sp"
+                />
+
+            <ImageView
+                android:id="@+id/tv_orgnizationname"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_below="@+id/tv_welcome"
+                android:gravity="center"
+                android:textColor="@color/textcolor"
+                android:layout_marginBottom="@dimen/margin_30"
+                android:textSize="@dimen/textsize_20sp"
+                />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_takecourse"
+                style="@style/App_ButtonlineblueStyle"
+                android:layout_width="200dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/tv_orgnizationname"
+                android:layout_marginTop="@dimen/margin_20"
+                android:text="@string/takecourse"
+                android:textAllCaps="false"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout android:id="@+id/llfilter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:weightSum="6"
+            android:minHeight="@dimen/margin_30"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:layout_below="@+id/ll_header"
+            android:layout_marginLeft="@dimen/medium_margin"
+
+            android:layout_toRightOf="@+id/rating_bar"
+            >
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_centerVertical="true"
+                android:id="@+id/tv_all"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/textsize_14sp"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:text="@string/all"
+
+
+                android:textColor="@color/textcolor" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_running"
+                android:layout_weight="1"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/textsize_14sp"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:text="@string/running"
+                android:textColor="@color/textcolor" />
+
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_centerVertical="true"
+                android:id="@+id/tv_completed"
+                android:layout_weight="1"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/textsize_14sp"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:text="@string/completed"
+                android:textColor="@color/textcolor" />
+
+        </LinearLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_item"
+            android:layout_below="@+id/llfilter"
+            android:layout_marginLeft="@dimen/medium_margin"
+            android:layout_marginRight="@dimen/medium_margin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_above="@+id/cardview"
+
+            />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            app:cardCornerRadius="5dp"
+            android:elevation="0dp"
+            app:cardElevation="0dp"
+            android:layout_margin="@dimen/margin_20"
+            app:cardBackgroundColor="@android:color/transparent"
+            >
+        <ImageView
+            android:id="@+id/iv_classroom_advertisment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/size_200"
+            android:visibility="gone"
+           />
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+
+    <data>
+
+    </data>
+</layout>

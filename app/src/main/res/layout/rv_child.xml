@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:id="@+id/ll_main"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="@dimen/margin_10"
+        android:layout_marginRight="@dimen/margin_10"
+        android:orientation="vertical"
+        >
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view"
+            android:layout_width="match_parent"
+            app:cardBackgroundColor="#e4e4e4"
+            app:cardCornerRadius="10dp"
+
+            android:layout_height="wrap_content"
+            >
+
+            <RelativeLayout
+                android:id="@+id/ll_parent"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/iv_videframe"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+
+                    android:scaleType="centerCrop"
+                    />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin_10"
+                    android:layout_toRightOf="@+id/iv_videframe"
+                    android:orientation="vertical">
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/textsize_14sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:text="Trignomatric chapter1"
+                        />
+
+
+                </LinearLayout>
+
+                <LinearLayout android:id="@+id/ll_paidfree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:minWidth="80dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@color/splash_color"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+
+                    >
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:paddingLeft="@dimen/margin_5"
+                        android:id="@+id/tv_freeorpaid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/textsize_14sp"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:text="Play"
+                        />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_5"
+                        android:src="@drawable/ic_play"
+                        android:tint="@color/white"/>
+                </LinearLayout>
+
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+    <data></data>
+
+</layout>

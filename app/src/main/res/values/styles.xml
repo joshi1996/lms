@@ -1,0 +1,126 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!-- Splash Screen theme. -->
+
+    <style name="SplashAppTheme" parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/splash_color</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowNoTitle">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+
+
+    <style name="App_EditTextStyle">
+        <item name="android:textColor">@color/hint_gray</item>
+        <item name="android:layout_height">45dip</item>
+        <item name="android:backgroundTint" tools:targetApi="lollipop">@color/hint_gray</item>
+        <item name="android:textSize">@dimen/textsize_14sp</item>
+        <item name="android:textColorHint">@color/light_gray</item>
+
+    </style>
+
+    <style name="AppCompatAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">#000000</item>
+        <item name="android:textColorPrimary">#000000</item>
+        <item name="android:background">#ffffff</item>
+    </style>
+
+    <style name="App_ButtonaccentStyle">
+        <item name="android:background">@drawable/button_green</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_height">40dip</item>
+
+        <item name="android:textSize">@dimen/textsize_15sp</item>
+
+    </style>
+
+    <style name="MyRatingBar" parent="Widget.AppCompat.RatingBar.Small">
+        <item name="colorAccent">@color/quantum_yellow</item>
+        <item name="android:colorControlNormal">@color/black</item>
+    </style>
+
+    <style name="searchviewtheme" parent="AppTheme">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:editTextColor">@color/black</item>
+        <item name="colorPrimary">@color/splash_color</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="App_ButtonDarkStyle">
+        <item name="android:background">@drawable/btn_dark</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_height">45dip</item>
+
+        <item name="android:textSize">@dimen/textsize_15sp</item>
+
+    </style>
+
+    <style name="App_ButtonlightblueStyle">
+        <item name="android:background">@drawable/rounded_button</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_height">45dip</item>
+
+        <item name="android:textSize">@dimen/textsize_15sp</item>
+
+    </style>
+
+    <style name="App_ButtonlineblueStyle">
+        <item name="android:background">@drawable/rounde_rectangle_blue</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_height">45dip</item>
+
+        <item name="android:textSize">@dimen/textsize_15sp</item>
+
+    </style>
+
+    <style name="App_ButtonfacebookStyle">
+        <item name="android:background">@drawable/btn_facebook</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_height">45dip</item>
+
+        <item name="android:textSize">@dimen/textsize_15sp</item>
+
+    </style>
+
+    <style name="App_ButtongrayStyle">
+        <item name="android:background">@drawable/btn_light_gray</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_height">45dip</item>
+        <item name="android:textSize">@dimen/textsize_15sp</item>
+
+    </style>
+
+    <style name="MyTextAppearanApp_ButtonlineblueStylece">
+        <item name="android:textSize">@dimen/textsize_12sp</item>
+
+    </style>
+
+    <style name="TextLabel" parent="TextAppearance.AppCompat">
+        <!-- Hint color and label color in FALSE state -->
+        <item name="android:textSize">@dimen/textsize_14sp</item>
+
+        <!-- Label color in TRUE state and bar color FALSE and TRUE State -->
+        <item name="android:minHeight">@dimen/size_50</item>
+        <item name="android:paddingLeft">@dimen/margin_5</item>
+        <item name="android:paddingRight">@dimen/margin_5</item>
+
+
+
+    </style>
+
+
+
+</resources>

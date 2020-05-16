@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data></data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:id="@+id/layouttop"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_100"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            >
+            <ImageView
+                android:id="@+id/iv_free"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+
+                />
+
+
+
+
+
+
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/enterotp"
+            android:layout_below="@+id/layouttop"
+            android:textColor="@color/textcolor"
+            android:layout_marginTop="@dimen/margin_30"
+            android:textSize="@dimen/textsize_16sp"
+            />
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/inpincode"
+            android:layout_centerInParent="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enterotp"
+            android:imeOptions="actionNext"
+            android:drawableLeft="@drawable/ic_phone"
+            android:drawablePadding="@dimen/padding_10"
+            android:layout_marginLeft="@dimen/medium_margin"
+            android:layout_marginRight="@dimen/medium_margin"
+            android:background="@drawable/rounde_rectangle"
+            android:theme="@style/TextLabel"
+            android:textColor="@color/textcolor"
+            />
+
+
+
+           <ImageView android:id="@+id/iv_time"
+               android:layout_width="wrap_content"
+               android:layout_below="@+id/inpincode"
+               android:layout_marginTop="@dimen/medium_margin"
+               android:layout_marginLeft="@dimen/medium_margin"
+
+               android:layout_height="wrap_content"
+               android:src="@drawable/ic_access_time"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:layout_marginLeft="@dimen/margin_5"
+
+            android:text="00:30"
+            android:layout_toRightOf="@+id/iv_time"
+            android:layout_below="@+id/inpincode"
+            android:visibility="visible"
+            android:textColor="@color/splash_color"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:textSize="@dimen/textsize_16sp"
+            />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_resend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:layout_marginLeft="@dimen/medium_margin"
+
+                android:text="@string/resend"
+                android:layout_toRightOf="@+id/tv_time"
+                android:layout_below="@+id/inpincode"
+                android:visibility="visible"
+                android:textColor="@color/textcolor"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:textSize="@dimen/textsize_16sp"
+                 />
+            <LinearLayout
+                android:id="@+id/layout_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_resend"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/medium_margin"
+                    android:layout_marginRight="@dimen/medium_margin"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/medium_margin"
+                        android:layout_marginTop="@dimen/medium_margin"
+                        android:layout_marginRight="@dimen/medium_margin"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:orientation="vertical"
+
+                        >
+
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_submit"
+                            style="@style/App_ButtonlineblueStyle"
+                            android:layout_width="match_parent"
+                            android:text="@string/submit"
+                            android:textAllCaps="true"
+                             />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/cardview"
+            android:layout_marginBottom="@dimen/margin_30"
+            android:gravity="center"
+            >
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/donthaveaccont"
+                android:textColor="@color/textcolor"
+
+                android:textSize="@dimen/textsize_14sp" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/signup_title"
+                android:id="@+id/tv_signup"
+                android:textColor="#ff272e"
+                android:layout_marginLeft="5dp"
+
+                android:textSize="@dimen/textsize_14sp" />
+        </LinearLayout>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            app:cardCornerRadius="5dp"
+            android:elevation="0dp"
+            app:cardElevation="0dp"
+            android:layout_marginLeft="@dimen/margin_5"
+            android:layout_marginRight="@dimen/margin_5"
+            android:layout_marginBottom="@dimen/margin_5"
+            app:cardBackgroundColor="@android:color/transparent"
+            >
+
+
+            <ImageView
+                android:id="@+id/iv_adverticement"
+                android:adjustViewBounds="true"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_100"
+
+                />
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</layout>

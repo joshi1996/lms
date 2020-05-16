@@ -1,0 +1,2 @@
+include ':app', ':razorpay-googlepay-1.3.0', ':tez-client-api-0.9.4'
+rootProject.name='lms'

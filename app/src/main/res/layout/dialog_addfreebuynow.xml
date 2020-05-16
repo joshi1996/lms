@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="20dp"
+        android:elevation="0dp"
+        app:cardElevation="0dp"
+
+        app:cardBackgroundColor="@android:color/transparent"
+        >
+    <LinearLayout android:id="@+id/rlmain"
+        android:layout_width="match_parent"
+        android:gravity="left"
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        >
+
+        <ImageView android:id="@+id/ivclose"
+
+            android:layout_width="20dp"
+            android:layout_gravity="right"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_height="20dp"
+            android:adjustViewBounds="true"
+            android:padding="3dp"
+            android:layout_marginRight="@dimen/margin_5"
+            android:layout_marginTop="@dimen/margin_5"
+            android:backgroundTint="@color/light_gray"
+            android:background="@drawable/rounded_textview_red"
+            android:src="@drawable/ic_close_blue"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textsize_20sp"
+            android:gravity="center_vertical"
+            android:layout_marginTop="-10dp"
+            android:layout_marginLeft="@dimen/medium_margin"
+            android:layout_marginRight="@dimen/medium_margin"
+            android:text="@string/paid_points"
+            android:textColor="@color/splash_color" />
+
+
+        <LinearLayout  android:id="@+id/llayout"
+            android:layout_width="wrap_content"
+            android:layout_below="@+id/tv_title"
+            android:layout_marginTop="@dimen/margin_10"
+
+            android:layout_height="wrap_content">
+            <ScrollView
+                android:id="@+id/scrollview"
+                android:layout_width="match_parent"
+                android:fillViewport="true"
+                android:layout_height="match_parent"
+                >
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvimportantpoints"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="@dimen/medium_margin"
+                    android:layout_marginBottom="@dimen/medium_margin"
+                    android:textColor="@color/black"
+                    android:inputType="textMultiLine"
+
+                    android:text=""
+                    />
+
+            </ScrollView>
+        </LinearLayout>
+
+
+
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_below="@+id/llayout"
+    android:gravity="center_horizontal"
+    android:layout_marginBottom="@dimen/margin_5"
+    android:layout_marginLeft="@dimen/margin_5"
+    android:layout_marginRight="@dimen/margin_5"
+
+    android:layout_height="wrap_content">
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_free"
+        style="@style/App_ButtonlineblueStyle"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:text="@string/free"
+ android:background="@drawable/rounde_rectangle_topleftflat"
+        android:backgroundTint="@color/splash_color"
+        android:textAllCaps="false"
+        android:textSize="@dimen/textsize_16sp"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_buynow"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        style="@style/App_ButtonlineblueStyle"
+        android:background="@drawable/rounde_rectangle_topflat"
+        android:textSize="@dimen/textsize_16sp"
+
+        android:text="@string/buynow"
+android:backgroundTint="#028D44"
+        android:textAllCaps="false"
+        />
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+</layout>

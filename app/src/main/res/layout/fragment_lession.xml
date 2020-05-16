@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:fillViewport="true"
+    android:clickable="true"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white"
+
+
+        >
+
+
+        <include android:id="@+id/ll_header"
+            layout="@layout/headerlayout"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_subject"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10"
+            android:textSize="@dimen/textsize_16sp"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="@dimen/margin_10"
+            android:paddingLeft="@dimen/medium_margin"
+            android:paddingRight="@dimen/medium_margin"
+            android:layout_below="@+id/ll_header"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/black" />
+
+
+
+<RelativeLayout android:id="@+id/rl_videview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/tv_subject"
+    >
+
+    <ImageView android:id="@+id/iv_cover"
+        android:layout_width="fill_parent"
+        android:layout_height="220dp"
+        android:scaleType="fitXY"
+        ></ImageView>
+
+    <ImageView android:id="@+id/iv_play"
+        android:layout_width="80dp"
+        android:layout_centerInParent="true"
+        android:layout_height="80dp"
+        android:scaleType="fitXY"
+        android:padding="10dp"
+        android:backgroundTint="@color/white"
+        android:background="@drawable/rounded_textview_red"
+        android:src="@drawable/ic_play"
+        ></ImageView>
+</RelativeLayout>
+
+
+
+
+        <LinearLayout android:id="@+id/ll_detail"
+            android:layout_below="@+id/rl_videview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingLeft="@dimen/medium_margin"
+            android:paddingRight="@dimen/medium_margin"
+            android:orientation="vertical">
+
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="@dimen/margin_10">
+
+              <androidx.appcompat.widget.AppCompatTextView
+                  android:paddingLeft="@dimen/margin_5"
+                  android:id="@+id/tv_title"
+                  android:layout_alignParentLeft="true"
+                  android:layout_width="0dp"
+                  android:layout_weight="1
+"
+                  android:layout_height="wrap_content"
+                  android:textSize="@dimen/textsize_16sp"
+                  android:textColor="@color/textcolor"
+                  android:text=""
+                  android:textStyle="bold"
+                  android:layout_gravity="center_vertical"
+                  android:layout_below="@+id/iv_categoryimage"/>
+
+              <ImageView android:id="@+id/iv_pdfdownload"
+                  android:layout_width="30dp"
+                  android:layout_height="30dp"
+                  android:src="@drawable/ic_pdf_download"/>
+
+          </LinearLayout>
+
+
+
+
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="@dimen/margin_5"
+
+                android:background="@color/hint_gray"/>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_centerVertical="true"
+                android:id="@+id/tv_desciption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_5"
+                android:textSize="@dimen/textsize_12sp"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:inputType="textMultiLine"
+                android:textColor="@color/textcolor" />
+
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</androidx.core.widget.NestedScrollView>
+
+    <data>
+
+    </data>
+</layout>

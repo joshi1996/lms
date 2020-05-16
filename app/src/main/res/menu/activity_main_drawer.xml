@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="@string/home"
+
+            />
+        <item
+            android:id="@+id/nav_categories"
+            android:icon="@drawable/ic_categories"
+            android:title="@string/categories" />
+
+
+        <item
+            android:id="@+id/nav_shops"
+            android:icon="@drawable/ic_categories"
+            android:title="@string/shops"
+            android:visible="true" />
+
+
+        <item
+            android:id="@+id/nav_cocktails"
+            android:icon="@drawable/ic_categories"
+            android:title="@string/cocktails" />
+
+        <item
+            android:id="@+id/nav_wishlist"
+            android:icon="@drawable/ic_categories"
+            android:title="@string/wishlist" />
+
+
+        <item
+            android:id="@+id/nav_breathanlicer"
+            android:icon="@drawable/ic_categories"
+            android:title="@string/breathanlicer" />
+
+
+        <item
+            android:id="@+id/nav_alcholcalculator"
+            android:icon="@drawable/ic_categories"
+            android:title="@string/alcholcalculator" />
+
+        <item
+            android:id="@+id/nav_blogs"
+            android:icon="@drawable/ic_categories"
+            android:title="@string/blogs" />
+
+        <item
+            android:id="@+id/nav_contactforadd"
+            android:icon="@drawable/ic_categories"
+            android:title="@string/contactforadd" />
+        <item
+            android:id="@+id/nav_ratus"
+            android:icon="@drawable/ic_categories"
+            android:title="@string/rateus" />
+
+        <item
+            android:id="@+id/nav_feedback"
+            android:icon="@drawable/ic_categories"
+            android:title="@string/feedback" />
+
+        <item
+            android:id="@+id/nav_discalimer"
+            android:icon="@drawable/ic_categories"
+            android:title="@string/disclaimer" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/logout"
+            android:title="@string/logout" />
+
+    </group>
+
+</menu>

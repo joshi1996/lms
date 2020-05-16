@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white"
+
+
+        >
+
+
+        <include android:id="@+id/ll_header"
+            layout="@layout/headerlayout"/>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_subjectname"
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textsize_16sp"
+            android:layout_marginTop="@dimen/margin_10"
+            android:layout_marginLeft="@dimen/margin_10"
+            android:layout_marginRight="@dimen/margin_10"
+
+            android:textStyle="bold"
+            android:drawableRight="@drawable/ic_arrow_down"
+
+            android:text=""
+            android:layout_below="@+id/ll_header"
+            android:textColor="@color/black" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_centerVertical="true"
+            android:id="@+id/tv_desciption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_5"
+            android:textSize="@dimen/textsize_12sp"
+            android:visibility="gone"
+            android:layout_marginLeft="@dimen/margin_10"
+            android:layout_marginRight="@dimen/margin_10"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical"
+            android:text=""
+            android:inputType="textMultiLine"
+            android:textColor="@color/textcolor" />
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_10"
+                android:layout_below="@+id/tv_subjectname"
+                android:layout_marginBottom="@dimen/medium_margin"/>
+
+
+
+    </LinearLayout>
+
+    <data>
+
+    </data>
+</layout>

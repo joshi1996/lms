@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data></data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/layouttop"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_100"
+                android:layout_alignParentTop="true"
+                android:gravity="center"
+                    >
+                <ImageView
+                    android:id="@+id/iv_free"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/free"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:adjustViewBounds="true"
+                    />
+
+
+
+
+
+
+
+            </LinearLayout>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_reg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/layout_1"
+                android:gravity="center"
+                android:text="@string/signinto"
+                android:textColor="@color/textcolor"
+                android:layout_marginBottom="@dimen/margin_30"
+                android:textSize="@dimen/textsize_20sp"
+           />
+
+
+            <LinearLayout
+                android:id="@+id/layout_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/medium_margin"
+                    android:layout_marginRight="@dimen/medium_margin"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/medium_margin"
+                        android:layout_marginRight="@dimen/medium_margin"
+                        android:layout_marginTop="@dimen/medium_margin"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:orientation="vertical"
+
+                        >
+
+
+
+                            <androidx.appcompat.widget.AppCompatEditText
+                                android:id="@+id/in_mobileno"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:drawableLeft="@drawable/ic_phone"
+                                android:hint="@string/entermobileno"
+                                android:inputType="phone"
+                                android:drawablePadding="@dimen/padding_10"
+
+                                android:background="@drawable/rounde_rectangle"
+                                android:theme="@style/TextLabel"
+                                android:textColor="@color/textcolor" />
+
+
+
+
+                            <androidx.appcompat.widget.AppCompatEditText
+                                android:id="@+id/inpassword"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/password"
+
+                                android:theme="@style/TextLabel"
+                                android:layout_marginTop="@dimen/medium_margin"
+                                android:background="@drawable/rounde_rectangle"
+                                android:drawableLeft="@drawable/ic_lock"
+                                android:inputType="textPassword"
+                                android:drawablePadding="@dimen/padding_10"
+                                android:textColor="@color/textcolor" />
+
+
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_login"
+                            style="@style/App_ButtonlineblueStyle"
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="@dimen/margin_20"
+                            android:layout_marginBottom="@dimen/margin_10"
+                            android:text="@string/signin"
+
+                            android:textAllCaps="false"
+                             />
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tv_forgotpassword"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/forgetpassword"
+                                android:textColor="@color/textcolor"
+
+                                android:textSize="@dimen/textsize_14sp" />
+                        </RelativeLayout>
+
+
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/cardview"
+                android:layout_marginBottom="@dimen/margin_10"
+                android:gravity="center"
+                >
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/donthaveaccont"
+                    android:textColor="@color/textcolor"
+
+                    android:textSize="@dimen/textsize_14sp" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/signup_title"
+                    android:id="@+id/tv_signup"
+                    android:textColor="#ff272e"
+                    android:layout_marginLeft="5dp"
+
+                    android:textSize="@dimen/textsize_14sp" />
+            </LinearLayout>
+
+
+           <androidx.cardview.widget.CardView
+               android:id="@+id/cardview"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_alignParentBottom="true"
+               app:cardCornerRadius="5dp"
+               android:elevation="0dp"
+               app:cardElevation="0dp"
+               android:layout_marginLeft="@dimen/margin_5"
+               android:layout_marginRight="@dimen/margin_5"
+               android:layout_marginBottom="@dimen/margin_5"
+               app:cardBackgroundColor="@android:color/transparent"
+               >
+               <ImageView
+                   android:id="@+id/iv_adverticement"
+                   android:adjustViewBounds="true"
+                   android:layout_width="match_parent"
+                   android:layout_height="@dimen/size_100"
+                   />
+
+           </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>

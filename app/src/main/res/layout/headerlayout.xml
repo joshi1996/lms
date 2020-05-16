@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/llheader"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="?actionBarSize"
+    android:background="@color/splash_color"
+    >
+
+   <LinearLayout android:id="@+id/ll_back"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignParentLeft="true"
+       android:layout_centerVertical="true"
+
+       >
+
+
+       <ImageView
+           android:id="@+id/iv_back"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_centerVertical="true"
+           android:layout_marginLeft="@dimen/margin_10"
+           android:src="@drawable/ic_back_button"/>
+
+
+           />
+   </LinearLayout>
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:id="@+id/tv_header"
+          android:layout_centerInParent="true"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center
+"
+        android:gravity="center"
+        android:textSize="@dimen/textsize_16sp"
+        android:layout_marginLeft="@dimen/margin_5"
+        android:text=""
+        android:textStyle="bold"
+        android:textColor="@color/white"/>
+
+
+
+
+</RelativeLayout>

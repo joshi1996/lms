@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MyRatingBar" parent="Widget.AppCompat.RatingBar.Small">
+        <item name="colorAccent">@color/quantum_yellow</item>
+        <item name="android:colorControlNormal">@color/black</item>
+    </style>
+</resources>
