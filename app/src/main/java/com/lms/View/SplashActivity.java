@@ -57,6 +57,7 @@ public class SplashActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
          activityBinding = DataBindingUtil.setContentView(this, R.layout.activity_splash);
 
+        Utils.changeStatuscolor(SplashActivity.this);
 
         if (Connectivity.isConnected(SplashActivity.this)) {
 

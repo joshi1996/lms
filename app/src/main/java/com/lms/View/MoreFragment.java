@@ -86,7 +86,7 @@ public class MoreFragment extends Fragment {
 
         mbinding.tvmobileno.setText(SharePrefs.getUserdetail(getActivity()).getUser().getPhoneNo());
 
-        mbinding.tvemailid.setText(SharePrefs.getSetting(getActivity()).getEmail());
+        mbinding.tvemailid.setText(SharePrefs.getUserdetail(getActivity()).getUser().getEmailAddress());
 
         ll_back.setVisibility(View.GONE);
 
@@ -182,7 +182,8 @@ public class MoreFragment extends Fragment {
 
 
                     if(SharePrefs.getUserdetail(getActivity())!=null){
-                    AlertClass.BaseAlert_yesNo(getActivity(), getString(R.string.logout_message), getString(R.string.yes), getString(R.string.no), true, new DialogInterface.OnClickListener() {
+                    AlertClass.BaseAlert_yesNo(getActivity(),SharePrefs.getSetting(getActivity()).getOrganizationName(),
+                        getString(R.string.logout_message), getString(R.string.yes), getString(R.string.no), true, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             dialogInterface.dismiss();

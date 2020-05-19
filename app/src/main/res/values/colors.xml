@@ -14,5 +14,7 @@
     <color name="gray">#989898</color>
 
     <color name="colorPrimary">#000000</color>
+    <color name="listgray">#4f6666</color>
+
 
 </resources>

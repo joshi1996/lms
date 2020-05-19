@@ -43,18 +43,29 @@
 
 
     </RelativeLayout>
-        <ImageView android:id="@+id/ivclose"
-            android:layout_width="20dp"
-            android:layout_gravity="right"
+        <LinearLayout android:id="@+id/llclose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_height="20dp"
-            android:adjustViewBounds="true"
-            android:padding="5dp"
-            android:layout_marginRight="@dimen/margin_10"
-            android:layout_marginTop="@dimen/margin_5"
-            android:backgroundTint="@color/white"
-            android:background="@drawable/rounded_textview_red"
-            android:src="@drawable/ic_close_blue"/>
+            android:layout_gravity="right"
+            android:paddingLeft="@dimen/margin_20"
+            android:paddingBottom="@dimen/margin_20"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="2dp"
+
+            >
+
+            <ImageView android:id="@+id/ivclose"
+                android:layout_width="20dp"
+
+                android:layout_gravity="top|right"
+                android:layout_height="20dp"
+android:adjustViewBounds="true"
+                android:backgroundTint="@color/white"
+                android:background="@drawable/rounded_textview_red"
+                android:src="@drawable/ic_close_blue"/>
+
+        </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 

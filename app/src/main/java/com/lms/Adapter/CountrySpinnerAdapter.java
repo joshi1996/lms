@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 
 import com.lms.GsonModel.CountryModels.DatumCountry;
@@ -38,6 +39,7 @@ public class CountrySpinnerAdapter extends ArrayAdapter<DatumCountry> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+
         return getCustomView(position, convertView, parent);
     }
 
@@ -47,5 +49,12 @@ public class CountrySpinnerAdapter extends ArrayAdapter<DatumCountry> {
         label.setText(mlist.get(position).getName().toString());
         return row;
 
+    }
+
+
+    @Nullable
+    @Override
+    public DatumCountry getItem(int position) {
+        return super.getItem(position);
     }
 }

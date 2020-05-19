@@ -2,10 +2,12 @@ package com.lms.Adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.RequiresApi;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,6 +19,7 @@ import com.lms.GsonModel.coursedetail.SubjectDatum;
 import com.lms.R;
 import com.lms.databinding.RowSubcourseBinding;
 import com.lms.interfaces.OnclickListener;
+import com.lms.utility.ThemeClass;
 
 import java.util.List;
 
@@ -60,8 +63,9 @@ public class CoursesublistAdapter extends RecyclerView.Adapter<CoursesublistAdap
 
     }
 
+
     @Override
-    public void onBindViewHolder(CoursesublistAdapter.MainViewHolder holder, final int position) {
+    public void onBindViewHolder(MainViewHolder holder, final int position) {
 
         RowSubcourseBinding binding = holder.mbinding;
 
@@ -75,6 +79,10 @@ public class CoursesublistAdapter extends RecyclerView.Adapter<CoursesublistAdap
 
         binding.tvTitle.setText(listItemArrayList.get(position).getName());
         binding.tvCount.setText(listItemArrayList.get(position).getLessoncount().toString()+" Lectures");
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            binding.tvCount.setCompoundDrawableTintList(ThemeClass.getcolorstate(context));
+        }
 
         binding.llMain.setTag(position);
         binding.llMain.setOnClickListener(new View.OnClickListener() {

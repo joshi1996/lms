@@ -41,6 +41,7 @@ import com.lms.utility.Connectivity;
 import com.lms.utility.FragmentTask;
 import com.lms.utility.GridSpacingItemDecoration;
 import com.lms.utility.ProgressDialog;
+import com.lms.utility.SharePrefs;
 import com.lms.utility.ThemeClass;
 import com.lms.utility.Utils;
 
@@ -142,7 +143,7 @@ public class LessionTopicFragment extends Fragment {
                     }
                     else{
 
-                        AlertClass.BaseAlert_done(getActivity(), "please buy this course to show pdf", getString(R.string.done), getString(R.string.no), false, new DialogInterface.OnClickListener() {
+                        AlertClass.BaseAlert_done(getActivity(), SharePrefs.getSetting(getActivity()).getOrganizationName(), "please buy this course to show pdf", getString(R.string.done), getString(R.string.no), false, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 dialogInterface.dismiss();
@@ -186,7 +187,7 @@ public class LessionTopicFragment extends Fragment {
                     startActivity(i);
                      else{
 
-                         AlertClass.BaseAlert_done(getActivity(), "please buy this course to show pdf", getString(R.string.done), getString(R.string.no), false, new DialogInterface.OnClickListener() {
+                         AlertClass.BaseAlert_done(getActivity(), SharePrefs.getSetting(getActivity()).getOrganizationName(),"please buy this course to show pdf", getString(R.string.done), getString(R.string.no), false, new DialogInterface.OnClickListener() {
                              @Override
                              public void onClick(DialogInterface dialogInterface, int i) {
                                  dialogInterface.dismiss();

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
@@ -141,18 +142,19 @@ public class CoursesubFragment extends Fragment implements  OnclickListener {
         mbinding.tvDesciptiontitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(mbinding.tvDesciption.getVisibility()==View.VISIBLE){
+                if(mbinding.wvDesciption.getVisibility()==View.VISIBLE){
                     mbinding.tvDesciptiontitle.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_arrow_down, 0);
-                    mbinding.tvDesciption.setVisibility(View.GONE);
+                    mbinding.wvDesciption.setVisibility(View.GONE);
                 }else{
                     mbinding.tvDesciptiontitle.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_arrow_up, 0);
 
-                    mbinding.tvDesciption.setVisibility(View.VISIBLE);
+                    mbinding.wvDesciption.setVisibility(View.VISIBLE);
 
                 }
             }
         });
 
+        mbinding.tvAddfree.setTextColor(SharePrefs.getSetting(getActivity()).getThemeColor());
 
         if (Connectivity.isConnected(getActivity())) {
             getsubCourselist(getActivity());
@@ -176,6 +178,11 @@ public class CoursesubFragment extends Fragment implements  OnclickListener {
 
             }
         });
+
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            mbinding.tvPrice.setCompoundDrawableTintList(ThemeClass.getcolorstate(getActivity()));
+        }
         return rootView;
     }
 
@@ -196,6 +203,11 @@ public class CoursesubFragment extends Fragment implements  OnclickListener {
         LinearLayout llayout= (LinearLayout) customLayout.findViewById(R.id.llayout);
         ImageView ivclose = (ImageView) customLayout.findViewById(R.id.ivclose);
         LinearLayout rlmain = (LinearLayout) customLayout.findViewById(R.id.rlmain);
+
+        TextView tv_title = (TextView) customLayout.findViewById(R.id.tv_title);
+
+        tv_title.setTextColor(SharePrefs.getSetting(getActivity()).getThemeColor());
+
         AppCompatButton btn_free= (AppCompatButton) customLayout.findViewById(R.id.btn_free);
         AppCompatButton btn_buynow   = (AppCompatButton) customLayout.findViewById(R.id.btn_buynow);
         tvimportentpoints.setText(Html.fromHtml(mCouresubModel.getImportantPoints()));
@@ -205,6 +217,7 @@ public class CoursesubFragment extends Fragment implements  OnclickListener {
 
         llayout.requestLayout();
 
+        ThemeClass.changeButtonColor(btn_free,getActivity());
 
         ivclose.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -212,6 +225,8 @@ public class CoursesubFragment extends Fragment implements  OnclickListener {
                 dialog.dismiss();
             }
         });
+
+
 
         btn_free.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -359,12 +374,21 @@ public class CoursesubFragment extends Fragment implements  OnclickListener {
                             if(mCouresubModel!=null){
                                 mCoursesublistAdapter=new CoursesublistAdapter(getActivity(),mCouresubModel.getSubjectData(),CoursesubFragment.this);
                                 mbinding.rvItem.setAdapter(mCoursesublistAdapter);
-                                mbinding.tvDesciption.setText(mCouresubModel.getDescription());
+                                mbinding.wvDesciption.loadData(mCouresubModel.getDescription(), "text/html; charset=UTF-8", null);
+
                                 mbinding.ratingBar.setRating(mCouresubModel.getRating());
+                                if(mCouresubModel.getUsersCourseAdded()==1){
+                                    mbinding.tvAddfree.setVisibility(View.GONE);
+                                    mbinding.tvBuynow.setVisibility(View.GONE);
+                                    mbinding.viewline1.setVisibility(View.GONE);
+                                    mbinding.vline2.setVisibility(View.GONE);
+
+                                }
                             }
                             if(mCouresubModel!=null && mCouresubModel.getPlanData()!=null && mCouresubModel.getPlanData().size()>0){
                                 mbinding.tvSubcription.setText(mCouresubModel.getPlanData().get(0).getDurationTime() +" "+mCouresubModel.getPlanData().get(0).getDurationType());
                                 mbinding.tvPrice.setText(mCouresubModel.getPlanData().get(0).getOfferPrice()+" /-");
+
                             }
                         } else if (value != null) {
                             Toasty.error(getActivity(), value.getMessage(), Toast.LENGTH_SHORT).show();

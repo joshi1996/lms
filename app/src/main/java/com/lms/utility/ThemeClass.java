@@ -23,6 +23,7 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.CenterInside;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.lms.GsonModel.Advertisment.AdvertismentModel;
 import com.lms.GsonModel.Advertisment.Datum;
 import com.lms.R;
@@ -51,6 +52,32 @@ public class ThemeClass {
         return SharePrefs.getSetting(mcontext).getThemeColor();
     }
 
+    public static  ColorStateList getcolorstate(Context mcontext) {
+
+
+        int[][] states = new int[][] {
+                new int[]{android.R.attr.state_pressed},
+                new int[]{android.R.attr.state_focused},
+                new int[]{android.R.attr.state_enabled}
+
+
+        };
+
+        int[] colors = new int[] {
+                SharePrefs.getSetting(mcontext).getThemeColor(),
+                SharePrefs.getSetting(mcontext).getThemeColor(),
+                SharePrefs.getSetting(mcontext).getThemeColor()
+
+        };
+
+        ColorStateList myList = new ColorStateList(states, colors);
+    return myList;
+    }
+
+
+
+
+
     public static  void changeButtonColor(AppCompatButton view, Context mcontext) {
 
 
@@ -71,6 +98,30 @@ public class ThemeClass {
 
         ColorStateList myList = new ColorStateList(states, colors);
         view.setBackgroundTintList(myList);
+    }
+
+
+    public static  void changeNavigationButton(BottomNavigationView view, Context mcontext) {
+
+
+        int[][] states = new int[][] {
+                new int[]{android.R.attr.state_checked},
+                new int[]{android.R.attr.state_enabled}
+
+
+        };
+
+        int[] colors = new int[] {
+                SharePrefs.getSetting(mcontext).getThemeColor(),
+                Color.parseColor(ColorTransparentUtils.transparentColor50(SharePrefs.getSetting(mcontext).getThemeColor()))
+
+        };
+
+        ColorStateList myList = new ColorStateList(states, colors);
+
+        view.setItemIconTintList(myList);
+        view.setItemTextColor(myList);
+
     }
 
 

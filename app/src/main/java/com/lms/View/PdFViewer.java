@@ -16,6 +16,7 @@ import androidx.databinding.DataBindingUtil;
 import com.lms.R;
 import com.lms.databinding.ActivityPdflayoutBinding;
 import com.lms.utility.ThemeClass;
+import com.lms.utility.Utils;
 
 public class PdFViewer extends AppCompatActivity {
     WebView webview;
@@ -26,6 +27,7 @@ public class PdFViewer extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
+        Utils.changeStatuscolor(PdFViewer.this);
 
         mbinding = DataBindingUtil.setContentView(this, R.layout.activity_pdflayout);
         if(getIntent() !=null){

@@ -49,12 +49,22 @@ public class SignupActivity extends AppCompatActivity implements GoogleApiClient
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+        Utils.changeStatuscolor(SignupActivity.this);
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         activityBinding = DataBindingUtil.setContentView(this,  R.layout.activity_registration);
         activity=this;
+
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            activityBinding.inmobileno.setCompoundDrawableTintList(ThemeClass.getcolorstate(SignupActivity.this));
+            activityBinding.inpassword.setCompoundDrawableTintList(ThemeClass.getcolorstate(SignupActivity.this));
+            activityBinding.infirstname.setCompoundDrawableTintList(ThemeClass.getcolorstate(SignupActivity.this));
+            activityBinding.inconfirmpassword.setCompoundDrawableTintList(ThemeClass.getcolorstate(SignupActivity.this));
+
+        }
 
 
         ThemeClass.changeLayoutColor(activityBinding.layouttop,SignupActivity.this);

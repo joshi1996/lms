@@ -12,10 +12,10 @@ import com.lms.R;
 public class AlertClass {
 
 
-    public static void BaseAlert_yesNo(Context mcontext, String message, String postivie_buton_text, String negative_button_text, boolean is_negative_show, DialogInterface.OnClickListener onClick_positive, DialogInterface.OnClickListener onClick_nagative) {
+    public static void BaseAlert_yesNo(Context mcontext, String appname,String message, String postivie_buton_text, String negative_button_text, boolean is_negative_show, DialogInterface.OnClickListener onClick_positive, DialogInterface.OnClickListener onClick_nagative) {
 
         AlertDialog mAlertDialog = new AlertDialog.Builder(new ContextThemeWrapper(mcontext, R.style.AppCompatAlertDialogStyle))
-                .setTitle(mcontext.getString(R.string.app_name))
+                .setTitle(appname)
                 .setMessage(message)
                 .setPositiveButton(postivie_buton_text, onClick_positive)
                 .setNegativeButton(negative_button_text, onClick_nagative)
@@ -23,10 +23,10 @@ public class AlertClass {
     }
 
 
-    public static void BaseAlert_done(Context mcontext, String message, String postivie_buton_text, String negative_button_text, boolean is_negative_show, DialogInterface.OnClickListener onClick_positive, DialogInterface.OnClickListener onClick_nagative) {
+    public static void BaseAlert_done(Context mcontext,  String appname,String message, String postivie_buton_text, String negative_button_text, boolean is_negative_show, DialogInterface.OnClickListener onClick_positive, DialogInterface.OnClickListener onClick_nagative) {
 
         AlertDialog mAlertDialog = new AlertDialog.Builder(new ContextThemeWrapper(mcontext, R.style.AppCompatAlertDialogStyle))
-                .setTitle(mcontext.getString(R.string.app_name))
+                .setTitle(appname)
                 .setMessage(message)
                 .setCancelable(false)
                 .setPositiveButton(postivie_buton_text, onClick_positive)

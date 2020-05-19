@@ -15,6 +15,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.databinding.DataBindingUtil;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -84,11 +86,11 @@ public class ProfileFragment extends Fragment implements  GoogleApiClient.OnConn
     private FragmentProfileBinding mbinding;
     private String TAG=ProfileFragment.class.getSimpleName();
     final static int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1, MY_PERMISSIONS_REQUEST_CAMERA = 10;
-    Uri imageUri = null;
-    String imagepath="";
+    public static Uri imageUri = null;
+    public static String imagepath="";
     String userChoosenTask;
 
-
+    ProfileData mProfileData;
 
     CountrySpinnerAdapter mCountrySpinnerAdapter;
     StateSpinnerAdapter mStateSpinnerAdapter;
@@ -124,6 +126,8 @@ public class ProfileFragment extends Fragment implements  GoogleApiClient.OnConn
 
             }
         });
+        ThemeClass.changeHeaderColor(mbinding.headerview,getActivity());
+
 
         ThemeClass.changeButtonColor(mbinding.btnUpdate,getActivity());
 
@@ -330,27 +334,23 @@ public class ProfileFragment extends Fragment implements  GoogleApiClient.OnConn
         mparam.put("zipCode", createRequestBody(zipcode));
         if(countrydata!=null){
             mparam.put("country", createRequestBody(countrydata));
-
         }
         else{
             ProgressDialog.hideDialog();
-
             Toasty.warning(getActivity(),"Please select Country",Toast.LENGTH_SHORT).show();
             return;
         }
         if(statedata!=null){
             mparam.put("state",createRequestBody(statedata));
-
         }
         else{
             ProgressDialog.hideDialog();
-
             Toasty.warning(getActivity(),"Please select State",Toast.LENGTH_SHORT).show();
             return;
         }
+
         if(citydata!=null){
             mparam.put("city",createRequestBody(citydata) );
-
         }else{
             ProgressDialog.hideDialog();
 
@@ -389,7 +389,7 @@ public class ProfileFragment extends Fragment implements  GoogleApiClient.OnConn
                         ProgressDialog.hideDialog();
                         if (value != null && value.getStatus() == 200) {
                             Toasty.success(getActivity(), value.getMessage(), Toast.LENGTH_SHORT).show();
-                             getProfile(getActivity());
+                             getProfile(getActivity(),true);
                         } else if (value != null) {
                             Toasty.error(getActivity(), value.getMessage(), Toast.LENGTH_SHORT).show();
 
@@ -417,7 +417,7 @@ public class ProfileFragment extends Fragment implements  GoogleApiClient.OnConn
 
 
         if (Connectivity.isConnected(getActivity())) {
-            getCountydata(getActivity());
+            getProfile(getActivity(),false);
 
         } else {
 
@@ -429,7 +429,7 @@ public class ProfileFragment extends Fragment implements  GoogleApiClient.OnConn
     }
 
 
-    private void getProfile(final Context context) {
+    private void getProfile(final Context context, final boolean isfinish) {
 
         ProgressDialog.showDialog(context);
         RestApi mRestApi = RestClient.getClient(context).create(RestApi.class);
@@ -449,48 +449,26 @@ public class ProfileFragment extends Fragment implements  GoogleApiClient.OnConn
                     public void onNext(ProfileData value) {
                         ProgressDialog.hideDialog();
                         if (value != null && value.getStatus() == 200) {
-                            mbinding.infirstname.setText(value.getData().getFullName());
+                             mProfileData=value;
+                            lmsData mUserDetails= SharePrefs.getUserdetail(getActivity());
+                            mUserDetails.setUser(value.getData());
+                            SharePrefs.saveUserDetail(getActivity(),mUserDetails);
+
+                            if(isfinish){
+                                ((MainActivity)getActivity()).onBackPressed();
+                                return;
+                            }
+                             mbinding.infirstname.setText(value.getData().getFullName());
                             mbinding.inemailaddress.setText(value.getData().getEmailAddress());
                             mbinding.inmobileno.setText(value.getData().getPhoneNo());
 
 
-                            if(Countrylist!=null && Countrylist.size()>0 && value.getData().getCountry()!=null){
-                                for(int i=0;i<Countrylist.size();i++){
-
-                                    if(Countrylist.get(i).getId().equalsIgnoreCase(value.getData().getCountry())){
-                                      mbinding.spCountry.setSelection(i);
-                                       break;
-                                     }
-                                }
-                            }
-
-                            if(Statelist!=null && Statelist.size()>0 && value.getData().getState()!=null){
-                                for(int i=0;i<Statelist.size();i++){
-
-                                    if(Statelist.get(i).getId().equalsIgnoreCase(value.getData().getState())){
-                                        mbinding.spState.setSelection(i);
-                                        break;
-                                    }
-                                }
-                            }
-
-
-                            if(Citylist!=null && Citylist.size()>0 && value.getData().getCity()!=null){
-                                for(int i=0;i<Citylist.size();i++){
-
-                                    if(Citylist.get(i).getId().equalsIgnoreCase(value.getData().getCity())){
-                                        mbinding.spCity.setSelection(i);
-                                        break;
-                                    }
-                                }
-                            }
+                            getCountydata(context);
 
 
                             mbinding.inzipcode.setText(value.getData().getZipCode());
                             mbinding.inaddress.setText(value.getData().getAddress());
-                            lmsData mUserDetails= SharePrefs.getUserdetail(getActivity());
-                            mUserDetails.setUser(value.getData());
-                            SharePrefs.saveUserDetail(getActivity(),mUserDetails);
+
 
 
                             Glide.with(getActivity())
@@ -520,11 +498,9 @@ public class ProfileFragment extends Fragment implements  GoogleApiClient.OnConn
                 });
     }
 
-
-
+ boolean isfirstimecountry=true;
     private void getCountydata(final Context context) {
 
-        ProgressDialog.showDialog(context);
         RestApi mRestApi = RestClient.getClient(context).create(RestApi.class);
         HashMap<String, String> mparam = new HashMap<String, String>();
 
@@ -541,27 +517,52 @@ public class ProfileFragment extends Fragment implements  GoogleApiClient.OnConn
                     @Override
                     public void onNext(CountryModel value) {
                         ProgressDialog.hideDialog();
+
                         if (value != null && value.getStatus() == 200) {
                             Countrylist=value.getData();
                             mCountrySpinnerAdapter=new CountrySpinnerAdapter(getActivity(),R.layout.spinner_rows,Countrylist);
                             mbinding.spCountry.setAdapter(mCountrySpinnerAdapter);
 
-                            mbinding.spCountry.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                                @Override
-                                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                                    if(position>-1){
-                                        countrydata=Countrylist.get(position).getId();
-                                    }else{
-                                        countrydata=null;
+
+
+
+
+
+
+
+                            if(Countrylist!=null && Countrylist.size()>0 && mProfileData!=null &&  mProfileData.getData().getCountry()!=null && isfirstimecountry){
+                                for(int i=0;i<Countrylist.size();i++){
+                                    if(Countrylist.get(i).getId().equalsIgnoreCase(mProfileData.getData().getCountry())){
+                                        mbinding.spCountry.setSelection(i+1);
+                                        countrydata=Countrylist.get(i).getId();
+                                        break;
                                     }
                                 }
 
-                                @Override
-                                public void onNothingSelected(AdapterView<?> parent) {
+                                mbinding.spCountry.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                                    @Override
+                                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                        if(isfirstimecountry==true){
+                                            isfirstimecountry=false;
 
-                                }
-                            });
-                            getStatedata(getActivity());
+                                            return;
+                                        }
+                                        if(position>-1){
+                                            countrydata=Countrylist.get(position).getId();
+                                            getStatedata(getActivity(),countrydata);
+                                        }else{
+                                            countrydata=null;
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onNothingSelected(AdapterView<?> parent) {
+
+                                    }
+                                });
+                            }
+
+
 
                         } else if (value != null) {
                             Toasty.error(getActivity(), value.getMessage(), Toast.LENGTH_SHORT).show();
@@ -583,13 +584,14 @@ public class ProfileFragment extends Fragment implements  GoogleApiClient.OnConn
                     }
                 });
     }
-    private void getStatedata(final Context context) {
 
-        ProgressDialog.showDialog(context);
+    boolean isfirsttime_state=true;
+
+    private void getStatedata(final Context context,String countryid) {
+
         RestApi mRestApi = RestClient.getClient(context).create(RestApi.class);
 
-
-        Observable<StateModel> mdata = mRestApi.getState();
+        Observable<StateModel> mdata = mRestApi.getState(countryid,"1");
         mdata.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<StateModel>() {
@@ -606,39 +608,66 @@ public class ProfileFragment extends Fragment implements  GoogleApiClient.OnConn
                             mStateSpinnerAdapter=new StateSpinnerAdapter(getActivity(),R.layout.spinner_rows,Statelist);
                             mbinding.spState.setAdapter(mStateSpinnerAdapter);
 
-                            mbinding.spState.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                                @Override
-                                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                                    if(position>-1){
-                                        statedata=Statelist.get(position).getCountryId();
-                                        JSONArray marray;
 
-                                        marray=new JSONArray();
 
-                                        JSONObject mobject=new JSONObject();
-                                        try {
-                                            mobject.put("name",Statelist.get(position).getName());
-                                            mobject.put("stateId",Statelist.get(position).getId());
-                                            mobject.put("status",Statelist.get(position).getStatus());
-                                            marray.put(mobject);
-                                        } catch (JSONException e) {
-                                            e.printStackTrace();
+                            if(isfirsttime_state){
+
+
+
+                                if(Statelist!=null && Statelist.size()>0 && mProfileData!=null &&  mProfileData.getData().getState()!=null){
+                                    for(int i=0;i<Statelist.size();i++){
+
+                                        if(Statelist.get(i).getId().equalsIgnoreCase(mProfileData.getData().getState())){
+                                            mbinding.spState.setSelection(i+1);
+                                            statedata=Statelist.get(i).getId();
+
+                                            break;
                                         }
-
-                                        getCitydata(getActivity(),marray);
-
-
-                                    }else{
-                                        statedata=null;
                                     }
                                 }
 
-                                @Override
-                                public void onNothingSelected(AdapterView<?> parent) {
+                                mbinding.spState.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                                    @Override
+                                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                        if(isfirsttime_state){
+                                            isfirsttime_state=false;
 
-                                }
-                            });
-                            getProfile(getActivity());
+                                            return;
+                                        }
+
+                                        if(position>-1){
+                                            statedata=Statelist.get(position).getId();
+                                            JSONArray marray;
+
+                                            marray=new JSONArray();
+
+                                            JSONObject mobject=new JSONObject();
+                                            try {
+                                                mobject.put("name",Statelist.get(position).getName());
+                                                mobject.put("stateId",Statelist.get(position).getId());
+                                                mobject.put("status",Statelist.get(position).getStatus());
+                                                marray.put(mobject);
+                                                getCitydata(getActivity(),marray);
+
+                                            } catch (JSONException e) {
+                                                e.printStackTrace();
+                                            }
+
+
+
+                                        }else{
+                                            statedata=null;
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onNothingSelected(AdapterView<?> parent) {
+
+                                    }
+                                });
+
+                            }
+
 
 
                         } else if (value != null) {
@@ -662,10 +691,10 @@ public class ProfileFragment extends Fragment implements  GoogleApiClient.OnConn
                 });
     }
 
+    boolean isfirsttime_city=true;
 
     private void getCitydata(final Context context,JSONArray mJSONArray) {
 
-        ProgressDialog.showDialog(context);
         RestApi mRestApi = RestClient.getClient(context).create(RestApi.class);
         HashMap<String, String> mparam = new HashMap<String, String>();
 
@@ -687,6 +716,16 @@ public class ProfileFragment extends Fragment implements  GoogleApiClient.OnConn
                             Citylist=value.getData();
                             mCitySpinnerAdapter=new CitySpinnerAdapter(getActivity(),R.layout.spinner_rows,Citylist);
                             mbinding.spCity.setAdapter(mCitySpinnerAdapter);
+                            if(Citylist!=null && Citylist.size()>0 && mProfileData!=null && mProfileData.getData().getCity()!=null && isfirsttime_city){
+                                for(int i=0;i<Citylist.size();i++){
+
+                                    if(Citylist.get(i).getId().equalsIgnoreCase(mProfileData.getData().getCity())){
+                                        mbinding.spCity.setSelection(i+1);
+                                        break;
+                                    }
+                                }
+                                isfirsttime_city=false;
+                            }
 
 
                             mbinding.spCity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -704,6 +743,8 @@ public class ProfileFragment extends Fragment implements  GoogleApiClient.OnConn
 
                                 }
                             });
+
+
 
 
 
@@ -744,7 +785,33 @@ public class ProfileFragment extends Fragment implements  GoogleApiClient.OnConn
 
                             Bitmap bitmap = BitmapFactory.decodeFile(imagepath);
 
-                             mbinding.profileImage.setImageBitmap(bitmap);
+
+                            ExifInterface ei = new ExifInterface(imagepath);
+                            int orientation = ei.getAttributeInt(ExifInterface.TAG_ORIENTATION,
+                                    ExifInterface.ORIENTATION_UNDEFINED);
+
+                            Bitmap rotatedBitmap = null;
+                            switch(orientation) {
+
+                                case ExifInterface.ORIENTATION_ROTATE_90:
+                                    rotatedBitmap = rotateImage(bitmap, 90);
+                                    break;
+
+                                case ExifInterface.ORIENTATION_ROTATE_180:
+                                    rotatedBitmap = rotateImage(bitmap, 180);
+                                    break;
+
+                                case ExifInterface.ORIENTATION_ROTATE_270:
+                                    rotatedBitmap = rotateImage(bitmap, 270);
+                                    break;
+
+                                case ExifInterface.ORIENTATION_NORMAL:
+                                default:
+                                    rotatedBitmap = bitmap;
+                            }
+
+                            mbinding.profileImage.setImageBitmap(rotatedBitmap);
+
                             mbinding.profileImage.setVisibility(View.VISIBLE);
 
                             System.gc();
@@ -774,8 +841,36 @@ public class ProfileFragment extends Fragment implements  GoogleApiClient.OnConn
                     System.gc();
 
                     Bitmap bitmap = BitmapFactory.decodeFile(imagepath);
+
+
+
+
+                    ExifInterface ei = new ExifInterface(imagepath);
+                    int orientation = ei.getAttributeInt(ExifInterface.TAG_ORIENTATION,
+                            ExifInterface.ORIENTATION_UNDEFINED);
+
+                    Bitmap rotatedBitmap = null;
+                    switch(orientation) {
+
+                        case ExifInterface.ORIENTATION_ROTATE_90:
+                            rotatedBitmap = rotateImage(bitmap, 90);
+                            break;
+
+                        case ExifInterface.ORIENTATION_ROTATE_180:
+                            rotatedBitmap = rotateImage(bitmap, 180);
+                            break;
+
+                        case ExifInterface.ORIENTATION_ROTATE_270:
+                            rotatedBitmap = rotateImage(bitmap, 270);
+                            break;
+
+                        case ExifInterface.ORIENTATION_NORMAL:
+                        default:
+                            rotatedBitmap = bitmap;
+                    }
+
+                    mbinding.profileImage.setImageBitmap(rotatedBitmap);
                     mbinding.profileImage.setVisibility(View.VISIBLE);
-                    mbinding.profileImage.setImageBitmap(bitmap);
 
                     System.gc();
                 } catch (Exception e) {
@@ -784,6 +879,13 @@ public class ProfileFragment extends Fragment implements  GoogleApiClient.OnConn
             }
 
         }
+    }
+
+    public static Bitmap rotateImage(Bitmap source, float angle) {
+        Matrix matrix = new Matrix();
+        matrix.postRotate(angle);
+        return Bitmap.createBitmap(source, 0, 0, source.getWidth(), source.getHeight(),
+                matrix, true);
     }
 
     public static String convertImageUriToFile(Uri imageUri, FragmentActivity activity) {

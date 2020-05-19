@@ -81,7 +81,7 @@ public class CourselistAdapter extends RecyclerView.Adapter<CourselistAdapter.Ma
               .into(binding.ivCategoryimage);
   }
 
-
+      binding.ratingBar.setRating(exampleListFull.get(position).getRating());
 
 
         binding.tvTitle.setText(exampleListFull.get(position).getName());

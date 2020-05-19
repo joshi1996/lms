@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -42,6 +43,8 @@ public class ForgetPasswordActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Utils.changeStatuscolor(ForgetPasswordActivity.this);
+
         activityBinding = DataBindingUtil.setContentView(this,  R.layout.activity_forgotpassword);
 
         ThemeClass.changeLayoutColor(activityBinding.layouttop,ForgetPasswordActivity.this);
@@ -71,6 +74,11 @@ public class ForgetPasswordActivity extends AppCompatActivity {
             }
         });
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            activityBinding.inmobileno.setCompoundDrawableTintList(ThemeClass.getcolorstate(ForgetPasswordActivity.this));
+
+
+        }
 
         activityBinding.btnResetpassword.setOnClickListener(new View.OnClickListener() {
             @Override

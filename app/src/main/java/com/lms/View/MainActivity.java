@@ -21,6 +21,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,6 +34,7 @@ import com.lms.utility.AlertClass;
 import com.lms.utility.FragmentTask;
 import com.lms.utility.SharePrefs;
 import com.lms.utility.ThemeClass;
+import com.lms.utility.Utils;
 
 import es.dmoral.toasty.Toasty;
 
@@ -43,10 +45,14 @@ public class MainActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Utils.changeStatuscolor(MainActivity.this);
+
         mainActivityBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         mainActivityBinding.navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         activity=this;
         mainActivityBinding.navigation.setSelectedItemId(R.id.navigation_classroom);
+
+        ThemeClass.changeNavigationButton(mainActivityBinding.navigation,this);
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -94,7 +100,8 @@ public class MainActivity extends AppCompatActivity{
         {
             Fragment current_frag=getCurrentFragment();
            if(current_frag instanceof ProfileFragment){
-                MainActivity.this.finish();
+               getSupportFragmentManager().popBackStack();
+               mainActivityBinding.navigation.setSelectedItemId(R.id.navigation_account);
             }
 
             else if(current_frag instanceof MoreFragment){
@@ -102,11 +109,9 @@ public class MainActivity extends AppCompatActivity{
             }
             else if(current_frag instanceof CourselistFragment){
                 MainActivity.this.finish();
-            }/*
-            else if(current_frag instanceof ChangePasswordFragment){
-                MainActivity.this.finish();
             }
-            else if(current_frag instanceof Map_Fragment){
+
+           /* else if(current_frag instanceof Map_Fragment){
                    enableViews(false);
                    getSupportFragmentManager().popBackStack();
 

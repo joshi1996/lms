@@ -87,6 +87,7 @@
                 android:layout_width="@dimen/size_30"
                 android:layout_height="@dimen/size_30"
                 android:src="@drawable/ic_phone"
+                android:adjustViewBounds="true"
                 android:layout_marginLeft="@dimen/medium_margin"
                 android:tint="@color/linecolor"
                 />
@@ -118,9 +119,10 @@
                 <ImageView
                     android:layout_width="@dimen/size_30"
                     android:layout_height="@dimen/size_30"
-                    android:src="@drawable/email"
+                    android:src="@drawable/ic_mail"
                     android:layout_marginLeft="@dimen/medium_margin"
                     android:tint="@color/linecolor"
+                    android:adjustViewBounds="true"
                     />
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvemailid"
@@ -154,9 +156,10 @@
                 <ImageView
                     android:layout_width="@dimen/size_30"
                     android:layout_height="@dimen/size_30"
-                    android:src="@drawable/logout"
+                    android:src="@drawable/ic_exit"
                     android:tint="@color/linecolor"
                     android:layout_marginLeft="@dimen/medium_margin"
+                    android:adjustViewBounds="true"
                     />
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_login_logut"
@@ -255,7 +258,7 @@
                 <ImageView
                     android:layout_width="@dimen/size_30"
                     android:layout_height="@dimen/size_30"
-                    android:src="@drawable/change_password"
+                    android:src="@drawable/ic_lock"
                     android:layout_marginLeft="@dimen/medium_margin"
                     android:tint="@color/linecolor"
                     />

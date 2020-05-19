@@ -82,7 +82,6 @@ public class CheckoutActivity extends AppCompatActivity {
     private String TAG = CheckoutActivity.class.getSimpleName();
     CouresubModel mCouresubModel;
     private PaymentsClient paymentsClient;
-    private static final int LOAD_PAYMENT_DATA_REQUEST_CODE = 991;
 
     private static final int TEZ_REQUEST_CODE = 123;
 
@@ -111,7 +110,7 @@ public class CheckoutActivity extends AppCompatActivity {
 
         }
 
-
+        mbinding.tvimportantpointstitle.setTextColor(SharePrefs.getSetting(CheckoutActivity.this).getThemeColor());
         ThemeClass.changeHeaderColor(mbinding.llHeader,CheckoutActivity.this);
 
         TextView tv_header=(TextView) mbinding.llHeader.findViewById(R.id.tv_header);
@@ -134,7 +133,9 @@ public class CheckoutActivity extends AppCompatActivity {
 
 
 
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            mbinding.tvPrice.setCompoundDrawableTintList(ThemeClass.getcolorstate(CheckoutActivity.this));
+        }
 
 
 
@@ -176,7 +177,7 @@ public class CheckoutActivity extends AppCompatActivity {
                                     .appendQueryParameter("pn", SharePrefs.getSetting(CheckoutActivity.this).getOrganizationName())
                                     .appendQueryParameter("mc", SharePrefs.getSetting(CheckoutActivity.this).getCompanyId())      //merchant code
                                     .appendQueryParameter("tr", ""+System.currentTimeMillis()) //your-transaction-ref-id
-                                    .appendQueryParameter("tn", "purchase course " +title)
+                                    .appendQueryParameter("tn", "Purchase Course " +title)
                                     .appendQueryParameter("am", "1")
                                     .appendQueryParameter("cu", "INR")
                                     .appendQueryParameter("url", SharePrefs.getSetting(CheckoutActivity.this).getWebsiteLink())
@@ -244,38 +245,35 @@ public class CheckoutActivity extends AppCompatActivity {
 
         if (requestCode == TEZ_REQUEST_CODE) {
             // Process based on the data in response.
-            switch (resultCode) {
-            case Activity.RESULT_OK:
+             String paymentResponse =data.getStringExtra("response");
+             Log.e("result",paymentResponse);
 
-
+            if(data.getStringExtra("Status").equalsIgnoreCase("SUCCESS")) {
                 try {
 
-                   // String paymentResponse =data.getStringExtra("response");
-                     String txnRef =data.getStringExtra("txnRef");
+                    String txnRef = data.getStringExtra("txnRef");
 
-                     String txnId =data.getStringExtra("txnId");
+                    String txnId = data.getStringExtra("txnId");
 
-                    callpaycourse(CheckoutActivity.this,txnRef,txnId);
+                    callpaycourse(CheckoutActivity.this, txnRef, txnId);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                break;
-
-            case Activity.RESULT_CANCELED:
-                // The user cancelled the payment attempt
-                Toasty.error(CheckoutActivity.this, "PAYMENT CANCELLED", Toast.LENGTH_SHORT).show();
-
-                break;
-
-            case AutoResolveHelper.RESULT_ERROR:
-                Status status = AutoResolveHelper.getStatusFromIntent(data);
-                Toasty.error(CheckoutActivity.this, status.getStatusMessage(), Toast.LENGTH_SHORT).show();
-
-                break;
             }
+            else if (data.getStringExtra("Status").equalsIgnoreCase("FAILURE")) {
+
+                    // The user cancelled the payment attempt
+                    Toasty.error(CheckoutActivity.this, "Payment Cancelled", Toast.LENGTH_SHORT).show();
+
+            }
+            else{
+                Toasty.error(CheckoutActivity.this, data.getStringExtra("Status"), Toast.LENGTH_SHORT).show();
+
+            }
+         }
 
 
-        }
+
     }
 
     private void callpaycourse(final Context context, String txnRef, final String txnId) {
@@ -369,6 +367,8 @@ public class CheckoutActivity extends AppCompatActivity {
                             if(mCouresubModel!=null){
                                 mbinding.tvDesciption.setText(mCouresubModel.getDescription());
                                 mbinding.ratingBar.setRating(mCouresubModel.getRating());
+                                mbinding.tvimportantpoints.setText(Html.fromHtml(mCouresubModel.getImportantPoints()));
+
                             }
                             if(mCouresubModel!=null && mCouresubModel.getPlanData()!=null && mCouresubModel.getPlanData().size()>0){
                                 mbinding.tvSubcription.setText(mCouresubModel.getPlanData().get(0).getDurationTime() +" "+mCouresubModel.getPlanData().get(0).getDurationType());

@@ -15,6 +15,7 @@ import androidx.databinding.DataBindingUtil;
 import com.lms.R;
 import com.lms.databinding.ActivityPdflayoutBinding;
 import com.lms.utility.ThemeClass;
+import com.lms.utility.Utils;
 
 public class WebViewer extends AppCompatActivity {
     WebView webview;
@@ -28,6 +29,8 @@ public class WebViewer extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
         mbinding = DataBindingUtil.setContentView(this, R.layout.activity_pdflayout);
+        Utils.changeStatuscolor(WebViewer.this);
+
         if(getIntent() !=null){
             if(getIntent().hasExtra("data"))
             datastr=getIntent().getStringExtra("data");

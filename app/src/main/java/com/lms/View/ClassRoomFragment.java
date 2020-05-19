@@ -25,7 +25,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.bumptech.glide.Glide;
-import com.google.android.material.checkbox.MaterialCheckBox;
 import com.lms.Adapter.CourselistAdapter;
 import com.lms.Adapter.UserCourseAdapter;
 import com.lms.GsonModel.CourelistModel;
@@ -257,6 +256,7 @@ public class ClassRoomFragment extends Fragment implements OnclickListener{
         ImageView ivclose = (ImageView) customLayout.findViewById(R.id.ivclose);
         RelativeLayout rlmain = (RelativeLayout) customLayout.findViewById(R.id.rlmain);
         CardView mCardView = (CardView) customLayout.findViewById(R.id.cardview);
+        LinearLayout llclose = (LinearLayout) customLayout.findViewById(R.id.llclose);
 
         boolean isshow= ThemeClass.setAdvertisment(ivaddvertisment, getActivity(), "Class Room - Popup Ads", (int) (displayRectangle.width() * 0.9f),(int) (displayRectangle.width() * 0.9f));
 
@@ -271,7 +271,7 @@ public class ClassRoomFragment extends Fragment implements OnclickListener{
 
         mCardView.requestLayout();
 
-        ivclose.setOnClickListener(new View.OnClickListener() {
+        llclose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();

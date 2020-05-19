@@ -30,6 +30,11 @@ public class CourseDatum implements Parcelable {
     @Expose
     private Integer status;
 
+    @SerializedName("rating")
+    @Expose
+    private Float rating;
+
+
 
     @SerializedName("medium")
     @Expose
@@ -47,6 +52,11 @@ public class CourseDatum implements Parcelable {
         } else {
             status = in.readInt();
         }
+        if (in.readByte() == 0) {
+            rating = null;
+        } else {
+            rating = in.readFloat();
+        }
         medium = in.readString();
     }
 
@@ -63,8 +73,31 @@ public class CourseDatum implements Parcelable {
             dest.writeByte((byte) 1);
             dest.writeInt(status);
         }
+        if (rating == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeFloat(rating);
+        }
         dest.writeString(medium);
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<CourseDatum> CREATOR = new Creator<CourseDatum>() {
+        @Override
+        public CourseDatum createFromParcel(Parcel in) {
+            return new CourseDatum(in);
+        }
+
+        @Override
+        public CourseDatum[] newArray(int size) {
+            return new CourseDatum[size];
+        }
+    };
 
     public String getId() {
         return id;
@@ -122,20 +155,12 @@ public class CourseDatum implements Parcelable {
         this.medium = medium;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
+
+    public Float getRating() {
+        return rating;
     }
 
-    public static final Creator<CourseDatum> CREATOR = new Creator<CourseDatum>() {
-        @Override
-        public CourseDatum createFromParcel(Parcel in) {
-            return new CourseDatum(in);
-        }
-
-        @Override
-        public CourseDatum[] newArray(int size) {
-            return new CourseDatum[size];
-        }
-    };
+    public void setRating(Float rating) {
+        this.rating = rating;
+    }
 }

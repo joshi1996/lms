@@ -35,6 +35,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Part;
 import retrofit2.http.PartMap;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
 
 public interface RestApi {
@@ -110,8 +111,8 @@ public interface RestApi {
     @GET("countries")
     Observable<CountryModel> getCountry();
 
-    @GET("states")
-    Observable<StateModel> getState();
+    @GET("countries/{countryid}/states?status")
+    Observable<StateModel> getState(@Path("countryid") String id,@Query("status") String status);
 
     @GET("cities")
     Observable<CityModel> getCity();

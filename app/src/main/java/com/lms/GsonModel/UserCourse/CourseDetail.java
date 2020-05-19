@@ -37,6 +37,11 @@ public class CourseDetail implements Parcelable {
     @Expose
     private String image;
 
+    @SerializedName("rating")
+    @Expose
+    private Float rating;
+
+
     protected CourseDetail(Parcel in) {
         id = in.readString();
         medium = in.readString();
@@ -51,6 +56,11 @@ public class CourseDetail implements Parcelable {
         createdAt = in.readString();
         updatedAt = in.readString();
         image = in.readString();
+        if (in.readByte() == 0) {
+            rating = null;
+        } else {
+            rating = in.readFloat();
+        }
     }
 
     @Override
@@ -69,6 +79,12 @@ public class CourseDetail implements Parcelable {
         dest.writeString(createdAt);
         dest.writeString(updatedAt);
         dest.writeString(image);
+        if (rating == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeFloat(rating);
+        }
     }
 
     @Override
@@ -87,6 +103,14 @@ public class CourseDetail implements Parcelable {
             return new CourseDetail[size];
         }
     };
+
+    public Float getRating() {
+        return rating;
+    }
+
+    public void setRating(Float rating) {
+        this.rating = rating;
+    }
 
     public String getId() {
         return id;

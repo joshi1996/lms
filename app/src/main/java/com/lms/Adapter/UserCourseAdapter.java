@@ -87,6 +87,13 @@ public class UserCourseAdapter extends RecyclerView.Adapter<UserCourseAdapter.Ma
             binding.tvTitle.setText(exampleListFull.get(position).getCourseDetail().getName());
 
         }
+        if(exampleListFull.get(position).getCourseDetail()!=null && exampleListFull.get(position).getCourseDetail().getRating()!=null) {
+
+            binding.ratingBar.setRating(exampleListFull.get(position).getCourseDetail().getRating());
+        }else{
+            binding.ratingBar.setRating(0);
+
+        }
 
         binding.llMain.setTag(position);
         binding.llMain.setOnClickListener(new View.OnClickListener() {

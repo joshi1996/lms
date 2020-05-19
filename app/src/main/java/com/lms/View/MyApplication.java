@@ -2,7 +2,6 @@ package com.lms.View;
 
 import android.app.Application;
 
-import com.stripe.android.PaymentConfiguration;
 import com.lms.R;
 
 import org.acra.ACRA;
@@ -23,4 +22,4 @@ public class MyApplication extends Application {
     }
 
 
-}//pk_test_ze3OMreQdZKnH7g94EaJLCop00tzqS8ygz
+}

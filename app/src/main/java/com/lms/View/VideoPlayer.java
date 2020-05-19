@@ -108,7 +108,7 @@ public class VideoPlayer extends AppCompatActivity {
     private void updateProgress() {
         if(videolength==(player.getCurrentPosition()/1000)){
             player.stop();
-            AlertClass.BaseAlert_done(VideoPlayer.this, "please buy this course to watch complete video", getString(R.string.done), getString(R.string.no), false, new DialogInterface.OnClickListener() {
+            AlertClass.BaseAlert_done(VideoPlayer.this,SharePrefs.getSetting(VideoPlayer.this).getOrganizationName(), "please buy this course to watch complete video", getString(R.string.done), getString(R.string.no), false, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
                     dialogInterface.dismiss();

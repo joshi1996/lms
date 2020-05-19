@@ -124,7 +124,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/textsize_14sp"
                         android:textColor="@color/textcolor"
-                        android:text="Yearly"
+                        android:text=""
                         android:layout_alignParentRight="true"
 
                         android:layout_below="@+id/iv_categoryimage"
@@ -165,19 +165,62 @@
 
             </LinearLayout>
 
-
-
-            <LinearLayout
+            <LinearLayout  android:id="@+id/llayout"
+                android:layout_width="match_parent"
                 android:layout_below="@+id/ll_detail"
-android:layout_marginTop="@dimen/size_100"
-                android:layout_marginLeft="@dimen/margin_30"
-                android:layout_marginRight="@dimen/margin_30"
+                android:layout_marginLeft="@dimen/margin_10"
+                android:layout_marginRight="@dimen/margin_10"
+android:orientation="vertical"
+                android:layout_marginTop="@dimen/margin_10"
 
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-                <include android:id="@+id/llgooglepay"
-                    layout="@layout/buy_with_googlepay_button"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvimportantpointstitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/textsize_20sp"
+                    android:gravity="center_vertical"
+                    android:text="@string/paid_points"
+                    android:layout_marginLeft="@dimen/margin_5"
+                    android:textColor="@color/splash_color" />
+                <ScrollView
+                    android:id="@+id/scrollview"
+                    android:layout_marginTop="10dp"
+android:nestedScrollingEnabled="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    >
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvimportantpoints"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_5"
+                        android:layout_marginBottom="@dimen/margin_5"
+                        android:textColor="@color/black"
+                        android:inputType="textMultiLine"
+
+                        android:text=""
+                        />
+
+                </ScrollView>
+
+                <LinearLayout
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="@dimen/margin_20"
+                    android:layout_marginBottom="@dimen/margin_20"
+
+                    android:layout_marginLeft="@dimen/margin_30"
+                    android:layout_marginRight="@dimen/margin_30"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <include android:id="@+id/llgooglepay"
+                        layout="@layout/buy_with_googlepay_button"/>
+                </LinearLayout>
             </LinearLayout>
+
+
 
 
         </RelativeLayout>

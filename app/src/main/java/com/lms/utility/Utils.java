@@ -15,12 +15,15 @@ import android.util.Log;
 import android.util.Patterns;
 import android.view.Display;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.lms.R;
 import com.lms.View.LoginActivity;
+import com.lms.databinding.ActivityPdflayoutBinding;
 
 
 public class Utils {
@@ -128,4 +131,21 @@ return height;
     }
 
 
+    public static void changeStatuscolor(Context mcontext) {
+        if (Build.VERSION.SDK_INT >= 21) {
+            Window window =((Activity) mcontext).getWindow();
+
+// clear FLAG_TRANSLUCENT_STATUS flag:
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+
+// add FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS flag to the window
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+
+// finally change the color
+            if(SharePrefs.getSetting(mcontext)!=null)
+                window.setStatusBarColor(SharePrefs.getSetting(mcontext).getThemeColor());
+        }
+
+
+    }
 }

@@ -4,6 +4,8 @@ import android.content.Intent;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -47,6 +49,7 @@ public class OtpActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         activityBinding = DataBindingUtil.setContentView(this, R.layout.activity_otp);
+        Utils.changeStatuscolor(OtpActivity.this);
 
         ThemeClass.changeLayoutColor(activityBinding.layouttop,OtpActivity.this);
         ThemeClass.changeButtonColor(activityBinding.btnSubmit,OtpActivity.this);
@@ -59,6 +62,12 @@ public class OtpActivity extends AppCompatActivity {
                 //.transform(new CircleTransform(..))
                 .into(activityBinding.ivFree).onLoadFailed(getResources().getDrawable(R.drawable.placeholder));
 
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            activityBinding.inpincode.setCompoundDrawableTintList(ThemeClass.getcolorstate(OtpActivity.this));
+
+
+        }
 
         if(getIntent()!=null){
             Bundle b=getIntent().getExtras();

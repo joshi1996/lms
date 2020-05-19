@@ -7,6 +7,7 @@ import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -44,8 +45,12 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Utils.changeStatuscolor(LoginActivity.this);
+
         activityBinding = DataBindingUtil.setContentView(this,  R.layout.activity_logins);
         activityobj=this;
+
+
 
         if(getIntent().hasExtra("error")){
             Toasty.error(LoginActivity.this,getIntent().getStringExtra("error"),Toast.LENGTH_SHORT).show();
@@ -62,6 +67,13 @@ public class LoginActivity extends AppCompatActivity {
                 .load(SharePrefs.getSetting(LoginActivity.this).getLogo())
                 //.transform(new CircleTransform(..))
                 .into(activityBinding.ivFree).onLoadFailed(getResources().getDrawable(R.drawable.placeholder));
+
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            activityBinding.inMobileno.setCompoundDrawableTintList(ThemeClass.getcolorstate(LoginActivity.this));
+            activityBinding.inpassword.setCompoundDrawableTintList(ThemeClass.getcolorstate(LoginActivity.this));
+
+        }
 
         activityBinding.btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override

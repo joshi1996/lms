@@ -20,6 +20,7 @@ import com.lms.R;
 import com.lms.interfaces.ListItem1;
 import com.lms.interfaces.OnLessionListener;
 import com.lms.interfaces.OnclickListener;
+import com.lms.utility.SharePrefs;
 import com.lms.utility.ThemeClass;
 
 
@@ -30,6 +31,7 @@ import jp.wasabeef.glide.transformations.BlurTransformation;
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 import static com.bumptech.glide.request.RequestOptions.bitmapTransform;
+import static com.bumptech.glide.request.RequestOptions.skipMemoryCacheOf;
 
 public class SearchAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
@@ -117,9 +119,11 @@ public class SearchAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
                if(listItemArrayList.get(position).getHeaderData().isShowchild()) {
                    vaultItemHolder.iv_arrow.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_arrow_up));
+                   vaultItemHolder.tvTopicName.setTextColor(SharePrefs.getSetting(context).getThemeColor());
                 }else{
 
                    vaultItemHolder.iv_arrow.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_arrow_down));
+                   vaultItemHolder.tvTopicName.setTextColor(context.getResources().getColor(R.color.listgray));
 
                }
             }

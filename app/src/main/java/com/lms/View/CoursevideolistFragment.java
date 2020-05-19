@@ -2,11 +2,15 @@ package com.lms.View;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -101,8 +105,13 @@ public class CoursevideolistFragment extends Fragment implements OnLessionListen
         });
         ll_back.setVisibility(View.VISIBLE);
 
-        if(mSubjectDatum.getDescription()!=null)
-        mbinding.tvDesciption.setText(mSubjectDatum.getDescription());
+        if(mSubjectDatum.getDescription()!=null){
+
+            mbinding.wvDesciption.loadData(mSubjectDatum.getDescription(), "text/html; charset=UTF-8", null);
+
+
+        }
+
 
         mbinding.rvItem.setHasFixedSize(true);
         mbinding.rvItem.setLayoutManager(new GridLayoutManager(getActivity(), 1));
@@ -114,13 +123,13 @@ public class CoursevideolistFragment extends Fragment implements OnLessionListen
         mbinding.tvSubjectname.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(mbinding.tvDesciption.getVisibility()==View.VISIBLE){
+                if(mbinding.wvDesciption.getVisibility()==View.VISIBLE){
                     mbinding.tvSubjectname.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_arrow_down, 0);
-                    mbinding.tvDesciption.setVisibility(View.GONE);
+                    mbinding.wvDesciption.setVisibility(View.GONE);
                 }else{
                     mbinding.tvSubjectname.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_arrow_up, 0);
 
-                    mbinding.tvDesciption.setVisibility(View.VISIBLE);
+                    mbinding.wvDesciption.setVisibility(View.VISIBLE);
 
                 }
             }
