@@ -4,139 +4,129 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:fillViewport="true"
-        android:clickable="true"
+        android:layout_height="match_parent"
         android:background="@color/white"
-
-        android:layout_height="match_parent">
-
+        android:clickable="true"
+        android:fillViewport="true">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:background="@color/white"
+            android:orientation="vertical">
 
+            <include
+                android:id="@+id/ll_header"
+                layout="@layout/headerlayout" />
 
-            >
-
-
-            <include android:id="@+id/ll_header"
-                layout="@layout/headerlayout"/>
-
-            <ImageView android:id="@+id/iv_cover"
+            <ImageView
+                android:id="@+id/iv_cover"
                 android:layout_width="fill_parent"
                 android:layout_height="220dp"
-                android:scaleType="fitXY"
                 android:layout_below="@+id/ll_header"
-                ></ImageView>
+                android:scaleType="fitXY">
+            </ImageView>
 
-
-
-            <LinearLayout android:id="@+id/ll_detail"
-                android:layout_below="@+id/iv_cover"
+            <LinearLayout
+                android:id="@+id/ll_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_cover"
                 android:background="@color/white"
+                android:orientation="vertical"
                 android:paddingLeft="@dimen/medium_margin"
-                android:paddingRight="@dimen/medium_margin"
-                android:orientation="vertical">
+                android:paddingRight="@dimen/medium_margin">
 
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_5">
+
                     <androidx.appcompat.widget.AppCompatTextView
-                        android:paddingLeft="@dimen/margin_5"
                         android:id="@+id/tv_title"
-                        android:layout_alignParentLeft="true"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/textsize_14sp"
-                        android:textColor="@color/textcolor"
+                        android:layout_below="@+id/iv_categoryimage"
+                        android:layout_alignParentLeft="true"
+                        android:paddingLeft="@dimen/margin_5"
                         android:text=""
-                        android:textStyle="bold"
-                        android:layout_below="@+id/iv_categoryimage"/>
+                        android:textColor="@color/textcolor"
+                        android:textSize="@dimen/textsize_14sp"
+                        android:textStyle="bold" />
 
                     <androidx.appcompat.widget.AppCompatRatingBar
                         android:id="@+id/rating_bar"
+                        style="@style/Widget.AppCompat.RatingBar.Small"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:stepSize="1"
-                        android:max="5"
-                        android:layout_marginTop="@dimen/margin_5"
-
                         android:layout_below="@+id/tv_title"
-                        android:scaleX="1"
                         android:layout_alignParentLeft="true"
+
                         android:layout_marginLeft="@dimen/margin_5"
+                        android:layout_marginTop="@dimen/margin_5"
                         android:layout_marginBottom="@dimen/margin_5"
-                        android:scaleY="1"
+                        android:max="5"
                         android:rating="0"
-                        style="@style/Widget.AppCompat.RatingBar.Small"
-                        android:theme="@style/MyRatingBar"
-                        />
+                        android:scaleX="1"
+                        android:scaleY="1"
+                        android:stepSize="1"
+                        android:theme="@style/MyRatingBar" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="right|center_vertical"
                         android:layout_below="@+id/tv_title"
+                        android:gravity="right|center_vertical">
 
-                        >
                         <androidx.appcompat.widget.AppCompatTextView
-                            android:layout_centerVertical="true"
                             android:id="@+id/tv_desciptiontitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="@dimen/textsize_12sp"
-                            android:gravity="center_vertical"
+                            android:layout_centerVertical="true"
                             android:layout_gravity="center_vertical"
+                            android:drawableRight="@drawable/ic_arrow_down"
+                            android:gravity="center_vertical"
                             android:text="@string/detail"
 
-                            android:drawableRight="@drawable/ic_arrow_down"
-                            android:textColor="@color/textcolor" />
+                            android:textColor="@color/textcolor"
+                            android:textSize="@dimen/textsize_12sp" />
 
 
                     </LinearLayout>
 
 
                     <androidx.appcompat.widget.AppCompatTextView
-                        android:paddingLeft="@dimen/margin_5"
                         android:id="@+id/tv_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/textsize_14sp"
-                        android:textColor="@color/textcolor"
-                        android:text=""
-                        android:gravity="center_vertical"
+                        android:layout_below="@+id/iv_categoryimage"
                         android:layout_toLeftOf="@+id/tv_subcription"
-                        android:drawablePadding="@dimen/margin_5"
                         android:drawableLeft="@drawable/ic_rupee"
-                        android:layout_below="@+id/iv_categoryimage"/>
+                        android:drawablePadding="@dimen/margin_5"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/margin_5"
+                        android:text=""
+                        android:textColor="@color/textcolor"
+                        android:textSize="@dimen/textsize_14sp" />
 
                     <androidx.appcompat.widget.AppCompatTextView
-                        android:paddingLeft="@dimen/margin_5"
                         android:id="@+id/tv_subcription"
-                        android:layout_marginLeft="@dimen/margin_10"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/textsize_14sp"
-                        android:textColor="@color/textcolor"
-                        android:text=""
-                        android:layout_alignParentRight="true"
-
                         android:layout_below="@+id/iv_categoryimage"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="@dimen/margin_10"
                         android:drawablePadding="@dimen/margin_5"
                         android:gravity="center_vertical"
-                        />
+                        android:paddingLeft="@dimen/margin_5"
 
+                        android:text=""
+                        android:textColor="@color/textcolor"
+                        android:textSize="@dimen/textsize_14sp" />
 
 
                 </RelativeLayout>
-
-
 
 
                 <View
@@ -144,83 +134,102 @@
                     android:layout_height="2dp"
                     android:layout_marginTop="@dimen/margin_5"
 
-                    android:background="@color/hint_gray"/>
+                    android:background="@color/hint_gray" />
 
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_centerVertical="true"
                     android:id="@+id/tv_desciption"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_5"
-                    android:textSize="@dimen/textsize_12sp"
-                    android:visibility="gone"
-                    android:gravity="center_vertical"
+                    android:layout_centerVertical="true"
                     android:layout_gravity="center_vertical"
-                    android:text=""
+                    android:layout_marginTop="@dimen/margin_5"
+                    android:gravity="center_vertical"
                     android:inputType="textMultiLine"
-                    android:textColor="@color/textcolor" />
-
+                    android:text=""
+                    android:textColor="@color/textcolor"
+                    android:textSize="@dimen/textsize_12sp"
+                    android:visibility="gone" />
 
 
             </LinearLayout>
 
-            <LinearLayout  android:id="@+id/llayout"
+            <LinearLayout
+                android:id="@+id/llayout"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/ll_detail"
                 android:layout_marginLeft="@dimen/margin_10"
-                android:layout_marginRight="@dimen/margin_10"
-android:orientation="vertical"
                 android:layout_marginTop="@dimen/margin_10"
+                android:layout_marginRight="@dimen/margin_10"
 
-                android:layout_height="wrap_content">
+                android:orientation="vertical">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvimportantpointstitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/textsize_20sp"
+                    android:layout_marginLeft="@dimen/margin_5"
                     android:gravity="center_vertical"
                     android:text="@string/paid_points"
-                    android:layout_marginLeft="@dimen/margin_5"
-                    android:textColor="@color/splash_color" />
+                    android:textColor="@color/splash_color"
+                    android:textSize="@dimen/textsize_20sp" />
+
                 <ScrollView
                     android:id="@+id/scrollview"
-                    android:layout_marginTop="10dp"
-android:nestedScrollingEnabled="true"
                     android:layout_width="match_parent"
-                    android:layout_height="250dp"
-                    >
+                    android:layout_height="180dp"
+                    android:layout_marginTop="10dp"
+                    android:nestedScrollingEnabled="true">
+
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tvimportantpoints"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/margin_5"
                         android:layout_marginBottom="@dimen/margin_5"
-                        android:textColor="@color/black"
                         android:inputType="textMultiLine"
-
                         android:text=""
-                        />
+                        android:textColor="@color/black" />
 
                 </ScrollView>
 
                 <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginTop="@dimen/margin_20"
-                    android:layout_marginBottom="@dimen/margin_20"
-
                     android:layout_marginLeft="@dimen/margin_30"
                     android:layout_marginRight="@dimen/margin_30"
+                    android:layout_marginBottom="@dimen/margin_20"
+                    android:layout_marginTop="@dimen/margin_50"
+                    android:orientation="vertical">
 
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <include android:id="@+id/llgooglepay"
-                        layout="@layout/buy_with_googlepay_button"/>
+<!--                    <ImageView-->
+<!--                        android:id="@+id/ivpaytm"-->
+<!--                        android:layout_width="@dimen/margin_120"-->
+<!--                        android:layout_height="@dimen/margin_70"-->
+<!--                        android:layout_gravity="center_horizontal"-->
+<!--                        android:scaleType="fitXY"-->
+<!--                        android:layout_marginBottom="@dimen/margin_10"-->
+<!--                        android:src="@drawable/razorpay" />-->
+
+<!--                    <androidx.appcompat.widget.AppCompatTextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_gravity="center_horizontal"-->
+<!--                        android:layout_marginTop="-30dp"-->
+<!--                        android:layout_marginBottom="@dimen/margin_10"-->
+<!--                        android:text="OR"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="25sp"-->
+
+<!--                        />-->
+
+                    <include
+                        android:id="@+id/llgooglepay"
+                        layout="@layout/buy_with_googlepay_button" />
                 </LinearLayout>
             </LinearLayout>
-
-
 
 
         </RelativeLayout>

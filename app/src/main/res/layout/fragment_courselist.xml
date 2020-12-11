@@ -3,101 +3,91 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-        <RelativeLayout
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:clickable="true"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/ll_header"
+            layout="@layout/headerlayout" />
+
+        <LinearLayout
+            android:id="@+id/rl_search"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:background="@color/white"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_header"
+            android:orientation="horizontal">
 
 
-            >
-<include android:id="@+id/ll_header"
-    layout="@layout/headerlayout"/>
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/searchView"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="@dimen/medium_margin"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:layout_marginRight="@dimen/margin_5"
+                android:layout_weight="1"
+                android:elevation="5dp"
+                android:gravity="center_vertical"
+                android:iconifiedByDefault="false"
 
-<LinearLayout
-    android:id="@+id/rl_search"
-    android:layout_below="@+id/ll_header"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
+                app:closeIcon="@drawable/ic_close_blue"
+                app:queryBackground="@drawable/rounded_search"
+                app:searchHintIcon="@drawable/ic_search"
+                app:searchIcon="@drawable/ic_search" />
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:layout_marginRight="@dimen/margin_10"
 
+                android:elevation="5dp"
+                android:gravity="center_vertical">
 
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/searchView"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="40dp"
-       android:gravity="center_vertical"
-        app:closeIcon="@drawable/ic_close_blue"
-        app:searchIcon="@drawable/ic_search"
-        app:searchHintIcon="@drawable/ic_search"
-        android:iconifiedByDefault="false"
-        android:elevation="5dp"
-
-        app:queryBackground="@drawable/rounded_search"
-        android:layout_marginLeft="@dimen/medium_margin"
-        android:layout_marginRight="@dimen/margin_5"
-        android:layout_marginTop="@dimen/medium_margin"
-        />
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:gravity="center_vertical"
-        android:layout_marginTop="@dimen/medium_margin"
-
-        android:layout_marginRight="@dimen/margin_10"
-        android:elevation="5dp">
-        <fr.ganfra.materialspinner.MaterialSpinner
-            android:id="@+id/sp_filter"
-            android:layout_marginLeft="@dimen/margin_5"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:ms_multiline="false"
-
-            app:ms_baseColor="@null"
-            android:textColor="@color/black"
-            app:ms_floatingLabelColor="@color/black"
-            app:ms_enableFloatingLabel="false"
-            app:ms_enableErrorLabel="false"
-            app:ms_floatingLabelText="@string/select"
-            app:ms_highlightColor="@color/black"
-            app:ms_errorColor="@color/black"
-            app:ms_thickness=".5dp"
-            app:ms_hintColor="@color/black"
-            app:ms_arrowColor="@color/black"
-            app:ms_arrowSize="16dp"
-            app:ms_alignLabels="true"
-            android:textSize="@dimen/textsize_12sp"
-
-
-            />
-
-    </LinearLayout>
-
-
-</LinearLayout>
-
-
-
-
-
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_item"
-                    android:layout_below="@+id/rl_search"
-                    android:layout_marginLeft="@dimen/medium_margin"
-                    android:layout_marginRight="@dimen/medium_margin"
+                <fr.ganfra.materialspinner.MaterialSpinner
+                    android:id="@+id/sp_filter"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="@dimen/margin_5"
+                    android:textColor="@color/black"
+
+                    android:textSize="@dimen/textsize_12sp"
+                    app:ms_alignLabels="true"
+                    app:ms_arrowColor="@color/black"
+                    app:ms_arrowSize="16dp"
+                    app:ms_baseColor="@null"
+                    app:ms_enableErrorLabel="false"
+                    app:ms_enableFloatingLabel="false"
+                    app:ms_errorColor="@color/black"
+                    app:ms_floatingLabelColor="@color/black"
+                    app:ms_floatingLabelText="@string/select"
+                    app:ms_highlightColor="@color/black"
+                    app:ms_hintColor="@color/black"
+                    app:ms_multiline="false"
+                    app:ms_thickness=".5dp"
+
 
                     />
 
+            </LinearLayout>
 
 
-        </RelativeLayout>
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_item"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/rl_search"
+            android:layout_marginLeft="@dimen/medium_margin"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="@dimen/medium_margin" />
+
+    </RelativeLayout>
 
     <data>
 

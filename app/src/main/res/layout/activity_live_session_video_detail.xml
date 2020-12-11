@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:fillViewport="true">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+
+            <include
+                android:id="@+id/ll_header"
+                layout="@layout/headerlayout" />
+
+            <!--<androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_subject"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_header"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="@dimen/margin_10"
+                android:layout_marginBottom="@dimen/margin_10"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/medium_margin"
+                android:paddingRight="@dimen/medium_margin"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textsize_16sp" />-->
+
+
+            <RelativeLayout
+                android:id="@+id/rl_videview_live"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_header">
+
+                <ImageView
+                    android:id="@+id/iv_cover_live"
+                    android:layout_width="fill_parent"
+                    android:layout_height="220dp"
+                    android:background="@drawable/card_view"
+                    android:scaleType="fitXY">
+                </ImageView>
+
+                <ImageView
+                    android:id="@+id/iv_play_live"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_centerInParent="true"
+                    android:padding="10dp"
+                    android:background="@drawable/rounded_textview_red"
+                    android:backgroundTint="@color/white"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_play">
+                </ImageView>
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ll_detail_live"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_videview_live"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/medium_margin"
+                android:paddingRight="@dimen/medium_margin">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_10">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_title_live"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:paddingLeft="@dimen/margin_5"
+                        android:text=""
+                        android:textColor="@color/textcolor"
+                        android:textSize="@dimen/textsize_16sp"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="@dimen/margin_5"
+                    android:background="@color/hint_gray" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_desciption_live"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="@dimen/margin_5"
+                    android:gravity="center_vertical"
+                    android:inputType="textMultiLine"
+                    android:textColor="@color/textcolor"
+                    android:textSize="@dimen/textsize_12sp" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <data>
+
+    </data>
+</layout>

@@ -18,11 +18,7 @@
         android:layout_alignParentTop="true"
         android:text="@string/changelanguageto"
         android:textStyle="bold"
-        android:textSize="@dimen/textsize_16sp"
-         />
-
-
-
+        android:textSize="@dimen/textsize_16sp" />
 
 
     <Button

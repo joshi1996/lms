@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:clickable="true"
+        android:orientation="vertical">
+
+
+        <include
+            android:id="@+id/ll_header"
+            layout="@layout/headerlayout" />
+
+
+        <LinearLayout
+            android:id="@+id/llfilter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_header"
+            android:layout_marginLeft="@dimen/medium_margin"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:layout_marginRight="@dimen/medium_margin"
+            android:layout_toRightOf="@+id/rating_bar"
+            android:background="@drawable/transaction"
+            android:gravity="center_vertical"
+            android:minHeight="35dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/medium_margin"
+                android:layout_weight="1.2"
+                android:gravity="left"
+                android:text="@string/course"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textsize_14sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/medium_margin"
+                android:layout_weight="0.8"
+                android:gravity="center"
+                android:text="@string/amount"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textsize_14sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/medium_margin"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/date"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textsize_14sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/medium_margin"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/detail"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textsize_14sp" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_item"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/llinvite"
+            android:layout_below="@+id/llfilter"
+            android:layout_marginLeft="@dimen/medium_margin"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="@dimen/medium_margin" />
+
+        <LinearLayout
+            android:id="@+id/transaction_not_found"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@id/ll_header"
+            android:layout_marginLeft="@dimen/margin_20"
+            android:layout_marginRight="@dimen/margin_20"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/notfound">
+            </ImageView>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <data>
+
+    </data>
+</layout>

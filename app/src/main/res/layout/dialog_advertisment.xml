@@ -31,16 +31,7 @@
     android:layout_height="match_parent"
     android:adjustViewBounds="true"
     android:layout_centerHorizontal="true"
-    android:src="@drawable/splashlogo"
-    />
-
-
-
-
-
-
-
-
+    android:src="@drawable/splashlogo" />
 
     </RelativeLayout>
         <LinearLayout android:id="@+id/llclose"

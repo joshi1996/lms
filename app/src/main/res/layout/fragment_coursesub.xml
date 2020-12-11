@@ -14,25 +14,34 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@color/white"
-
-
-        >
+        android:background="@color/white">
 
 
         <include android:id="@+id/ll_header"
             layout="@layout/headerlayout"/>
 
+        <!--<ImageView
+            android:id="@+id/live_video_course"
+            android:layout_width="@dimen/margin_40"
+            android:layout_height="@dimen/margin_40"
+            android:layout_toRightOf="@id/ll_header"
+            android:layout_marginLeft="-45dp"
+            android:layout_marginTop="@dimen/margin_10"
+            android:background="@drawable/ic_live_video">
+
+        </ImageView>-->
+
         <ImageView android:id="@+id/iv_cover"
             android:layout_width="fill_parent"
             android:layout_height="220dp"
             android:scaleType="fitXY"
-            android:layout_below="@+id/ll_header"
-            ></ImageView>
+            android:layout_below="@+id/ll_header">
+        </ImageView>
 
 
 
-        <LinearLayout android:id="@+id/ll_detail"
+        <LinearLayout
+            android:id="@+id/ll_detail"
             android:layout_below="@+id/iv_cover"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -65,7 +74,6 @@
                     android:stepSize="1"
                     android:max="5"
                     android:layout_marginTop="@dimen/margin_5"
-
                     android:layout_below="@+id/tv_title"
                     android:scaleX="1"
                     android:layout_alignParentLeft="true"
@@ -74,8 +82,7 @@
                     android:scaleY="1"
                     android:rating="0"
                     style="@style/Widget.AppCompat.RatingBar.Small"
-                    android:theme="@style/MyRatingBar"
-                    />
+                    android:theme="@style/MyRatingBar" />
 
 
                 <LinearLayout
@@ -83,9 +90,29 @@
                     android:layout_height="wrap_content"
                     android:gravity="right|center_vertical"
                     android:layout_below="@+id/tv_title"
+                    android:layout_toRightOf="@+id/rating_bar">
 
-                    android:layout_toRightOf="@+id/rating_bar"
-                    >
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_centerVertical="true"
+                        android:id="@+id/tv_review"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/textsize_12sp"
+                        android:gravity="center_vertical"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/reviews"
+                        android:textColor="@color/textcolor"
+                        android:layout_marginRight="@dimen/margin_5" />
+
+                    <View
+                        android:id="@+id/viewlineReview"
+                        android:layout_width="2dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginRight="@dimen/margin_10"
+                        android:layout_height="match_parent"
+                        android:background="@color/light_gray"/>
+
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_centerVertical="true"
                         android:id="@+id/tv_desciptiontitle"
@@ -95,10 +122,11 @@
                         android:gravity="center_vertical"
                         android:layout_gravity="center_vertical"
                         android:text="@string/detail"
-
                         android:drawableRight="@drawable/ic_arrow_down"
                         android:textColor="@color/textcolor" />
-                    <View android:id="@+id/viewline1"
+
+                    <View
+                        android:id="@+id/viewline1"
                         android:layout_width="2dp"
                         android:layout_marginTop="2dp"
                         android:layout_marginBottom="2dp"
@@ -116,7 +144,8 @@
                         android:textColor="@color/splash_color" />
 
 
-                    <View android:id="@+id/vline2"
+                    <View
+                        android:id="@+id/vline2"
                         android:layout_width="2dp"
                         android:layout_marginLeft="@dimen/margin_10"
                         android:layout_marginRight="@dimen/margin_10"
@@ -161,23 +190,16 @@
                     android:textColor="@color/textcolor"
                     android:text=""
                     android:layout_alignParentRight="true"
-
                     android:layout_below="@+id/iv_categoryimage"
                     android:drawablePadding="@dimen/margin_5"
-                    android:gravity="center_vertical"
-                   />
-
-
+                    android:gravity="center_vertical" />
 
             </RelativeLayout>
-
-
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_marginTop="@dimen/margin_5"
-
                 android:background="@color/hint_gray"/>
 
 
@@ -193,8 +215,6 @@
                 android:text=""
                 android:textColor="@color/textcolor"
                 tools:ignore="WebViewLayout" />
-
-
 
 
             <androidx.recyclerview.widget.RecyclerView

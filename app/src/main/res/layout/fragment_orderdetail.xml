@@ -15,11 +15,7 @@
 
         <include
             android:id="@+id/headerview"
-            layout="@layout/headerlayout"
-            />
-
-
-
+            layout="@layout/headerlayout" />
 
 
                 <RelativeLayout android:id="@+id/mainlayout"

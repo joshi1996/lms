@@ -8,16 +8,22 @@
     <string name="cancle">Cancel</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="term_header">Terms and Condition</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="show_reviews">Show Reviews</string>
+    <string name="support">Help and Support</string>
     <string name="customer_tab">Customer</string>
     <string name="reports_tab">Reports</string>
     <string name="profile_tab">Proflie</string>
     <string name="customerlist">Customer List</string>
     <string name="reports">Reports</string>
     <string name="profile">Profile</string>
+    <string name="complete">Complete Profile</string>
     <string name="all">ALL</string>
     <string name="theywillpay">They will pay</string>
     <string name="theywillrecieve">They will Receive</string>
     <string name="updateprofile">Update</string>
+    <string name="completeprofile">Complete Profile</string>
     <string name="blank_name">Please enter your name.</string>
     <string name="create_account">Create an Account</string>
     <string name="via">Or via</string>
@@ -39,6 +45,7 @@
     <string name="blank_emailaddress">Please enter Email Address.</string>
     <string name="username">UserName</string>
     <string name="forgetpassword">Forgot Password?</string>
+    <string name="resetPassword">Reset Password?</string>
     <string name="emailaddress">Email Address</string>
     <string name="mobileno">Mobile No.</string>
     <string name="login">LOG IN</string>
@@ -47,9 +54,7 @@
     <string name="blank_otp">Please enter Otp.</string>
 
 
-
     <string name="logout_message">Are you sure you want to logout ?</string>
-
 
 
     <string name="resetpassword">Reset Password</string>
@@ -74,6 +79,8 @@
     <string name="blank_lastname">Please enter last name.</string>
     <string name="blank_country">Please enter country Name.</string>
     <string name="invalid_emailaddress">Please enter valid email address.</string>
+    <string name="blank_feedback">Please Give Reviews, Its not Empty</string>
+    <string name="blank_rating">Please Rate Us!!</string>
     <string name="country_invalid">Please select valid country</string>
     <string name="crash_toast_text">Please send crash report</string>
     <string name="takephoto">Take Photo</string>
@@ -81,7 +88,10 @@
     <string name="addphoto">Add Photo!</string>
     <string name="path_notvalid">Please select image to upload</string>
 
-   /**/
+    <string name="friendcode">Reference code</string>
+
+
+    /**/
 
     <string name="password">Password</string>
 
@@ -118,6 +128,7 @@
     <string name="changepassword">Change Password</string>
     <string name="changelanguage">Change Language</string>
     <string name="privacypolicy">Privacy Policy</string>
+    <string name="aboutUs">About Us</string>
     <string name="newpassword">New Password</string>
     <string name="blank_password">Please enter password.</string>
     <string name="blank_newpassword">Please enter new password.</string>
@@ -166,7 +177,7 @@
     <string name="pickuptime">Pickup time:</string>
     <string name="status">Status:</string>
     <string name="cancelorder">cancel order</string>
-    <string name="sendyourfeedback">send your feedback</string>
+    <string name="sendyourfeedback">Submit Reviews</string>
     <string name="repeatorder">Repeat order</string>
     <string name="wewould_great">We would greatly appreciate it if you kindly  give \n some feedback.</string>
     <string name="writeyourcomment">Write your comments</string>
@@ -213,12 +224,14 @@
     <string name="signinto">Sign in to continue to your account</string>
     <string name="free_register">Free Register</string>
     <string name="youhaveaccount">You have account?</string>
-    <string name="classroom">Class Room</string>
+    <string name="classroom">Classes</string>
     <string name="invite">Invite</string>
+    <string name="invite_earn">Invite and Earn</string>
     <string name="account">Account</string>
     <string name="course">Course</string>
     <string name="dashboard">Dashboard</string>
     <string name="coursedetail">Course detail</string>
+    <string name="Jobdetail">Job detail</string>
     <string name="welcome">Welcome in India\'s Largest \n Online Learning Application</string>
     <string name="takecourse">Take   Free Course</string>
     <string name="orderdetail">Order Detail</string>
@@ -231,6 +244,8 @@
     <string name="addfree">Add Free</string>
     <string name="buynow">Buy Now</string>
     <string name="detail">Details</string>
+    <string name="reviews">Reviews</string>
+    <string name="post_reviews">Post Reviews</string>
     <string name="paid_points">Paid / Important Content</string>
     <string name="checkout">Checkout</string>
     <string name="googlepay_button_content_description">Google Pay</string>
@@ -246,4 +261,15 @@
     <string name="googlepay_status_unavailable">Unfortunately, Google Pay is not available on this device.</string>
     <string name="payments_show_name">Successfully received payment data for %s!</string>
     <string name="gateway_replace_name_example">"Gateway name set to \"example\" - please modify Constants.java and replace it with your own gateway."</string>
+    <string name="inviteandearn"><![CDATA[Invite & Earn]]></string>
+    <string name="amount">Amount</string>
+    <string name="date">Date</string>
+    <string name="transaction">Transaction</string>
+    <string name="coursetranscation">Course Transaction Details</string>
+    <string name="earningText">Transaction Details</string>
+    <string name="earning">Earning</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
 </resources>

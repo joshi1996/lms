@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:clickable="true">
+
+
+        <include
+            android:id="@+id/headerview"
+            layout="@layout/headerlayout"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_alignParentTop="true" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/headerview"
+            android:background="@color/white">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/medium_margin"
+                    android:layout_marginRight="@dimen/medium_margin"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_marginTop="@dimen/margin_20">
+
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/complete_profile_image"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_centerHorizontal="true"
+                            app:civ_border_color="@color/white"
+                            app:civ_border_width="1dp"
+                            android:layout_alignParentLeft="true"
+                            android:visibility="visible"
+                            android:src="@drawable/appstore"
+                            android:background="@drawable/appstore"
+                            android:tint="@color/linecolor"
+                            app:civ_circle_background_color="@color/white" />
+
+                        <ImageView
+                            android:id="@+id/complete_click_image"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_camera"
+                            android:layout_alignParentBottom="true"
+                            android:layout_toRightOf="@id/complete_profile_image"
+                            android:layout_marginLeft="-10dp">
+                        </ImageView>
+
+                    </RelativeLayout>
+
+
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/complete_infirstname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/fullName"
+                        android:layout_marginTop="@dimen/medium_margin"
+                        android:theme="@style/TextLabel"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:paddingRight="@dimen/margin_15"
+                        android:background="@drawable/rounde_rectangle"
+                        android:drawablePadding="@dimen/padding_10"
+                        android:drawableLeft="@drawable/ic_user"
+                        android:textColor="@color/textcolor"/>
+
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/complete_inmobileno"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/mobileno"
+                        android:imeOptions="actionNext"
+                        android:background="@drawable/rounde_rectangle"
+                        android:inputType="number|textNoSuggestions"
+                        android:paddingRight="@dimen/margin_15"
+                        android:theme="@style/TextLabel"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:enabled="false"
+                        android:drawablePadding="@dimen/padding_10"
+                        android:layout_marginTop="@dimen/medium_margin"
+                        android:drawableTint="@color/black"
+                        android:drawableLeft="@drawable/ic_phone"
+                        android:textColor="@color/textcolor" />
+
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/complete_inemailaddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/emailaddress"
+                        android:imeOptions="actionNext"
+                        android:background="@drawable/rounde_rectangle"
+                        android:inputType="textEmailAddress|textNoSuggestions"
+                        android:paddingRight="@dimen/margin_15"
+                        android:theme="@style/TextLabel"
+                        android:drawablePadding="@dimen/padding_10"
+                        android:layout_marginTop="@dimen/medium_margin"
+                        android:drawableLeft="@drawable/ic_mail"
+                        android:drawableTint="@color/black"
+                        android:textColor="@color/textcolor" />
+
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/complete_inaddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/address"
+                        android:imeOptions="actionNext"
+                        android:background="@drawable/rounde_rectangle"
+                        android:drawableTint="@color/black"
+                        android:minLines="2"
+                        android:inputType="textPostalAddress|textNoSuggestions|textMultiLine"
+                        android:paddingRight="@dimen/margin_15"
+                        android:theme="@style/TextLabel"
+                        android:drawablePadding="@dimen/padding_10"
+                        android:layout_marginTop="@dimen/medium_margin"
+                        android:drawableLeft="@drawable/ic_address"
+                        android:textColor="@color/textcolor" />
+
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/complete_inzipcode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/zipcode"
+                        android:imeOptions="actionNext"
+                        android:background="@drawable/rounde_rectangle"
+                        android:drawableTint="@color/black"
+                        android:inputType="number|textNoSuggestions"
+                        android:paddingRight="@dimen/margin_15"
+                        android:theme="@style/TextLabel"
+                        android:drawablePadding="@dimen/padding_10"
+                        android:layout_marginTop="@dimen/medium_margin"
+                        android:layout_marginBottom="@dimen/margin_10"
+                        android:drawableLeft="@drawable/ic_address"
+                        android:textColor="@color/textcolor" />
+
+
+                    <fr.ganfra.materialspinner.MaterialSpinner
+                        android:id="@+id/complete_sp_country"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:ms_multiline="false"
+                        app:ms_hint="Select Country"
+                        app:ms_floatingLabelColor="@color/black"
+                        app:ms_enableFloatingLabel="false"
+                        app:ms_enableErrorLabel="false"
+                        app:ms_baseColor="@color/black"
+                        app:ms_highlightColor="@color/black"
+                        app:ms_errorColor="@color/black"
+                        app:ms_thickness=".5dp"
+                        app:ms_hintColor="@color/gray"
+                        app:ms_arrowColor="@color/black"
+                        app:ms_arrowSize="16dp"
+                        app:ms_alignLabels="false"
+                        android:textSize="@dimen/textsize_16sp"
+                        android:layout_marginTop="@dimen/medium_margin"
+                        android:layout_marginBottom="@dimen/margin_10" />
+
+
+                    <fr.ganfra.materialspinner.MaterialSpinner
+                        android:id="@+id/complete_sp_state"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:ms_multiline="false"
+                        app:ms_hint="Select State"
+                        app:ms_floatingLabelColor="@color/black"
+                        app:ms_enableFloatingLabel="false"
+                        app:ms_enableErrorLabel="false"
+                        app:ms_baseColor="@color/black"
+                        app:ms_highlightColor="@color/black"
+                        app:ms_errorColor="@color/black"
+                        app:ms_thickness=".5dp"
+                        app:ms_hintColor="@color/light_gray"
+                        app:ms_arrowColor="@color/black"
+                        app:ms_arrowSize="16dp"
+                        app:ms_alignLabels="false"
+                        android:textSize="@dimen/textsize_16sp"
+                        android:layout_marginTop="@dimen/medium_margin"
+                        android:layout_marginBottom="@dimen/margin_10" />
+
+
+                    <fr.ganfra.materialspinner.MaterialSpinner
+                        android:id="@+id/complete_sp_city"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:ms_multiline="false"
+                        app:ms_hint="Select City"
+                        app:ms_floatingLabelColor="@color/black"
+                        app:ms_enableFloatingLabel="false"
+                        app:ms_enableErrorLabel="false"
+                        app:ms_baseColor="@color/black"
+                        app:ms_highlightColor="@color/black"
+                        app:ms_errorColor="@color/black"
+                        app:ms_thickness=".5dp"
+                        app:ms_hintColor="@color/light_gray"
+                        app:ms_arrowColor="@color/black"
+                        app:ms_arrowSize="16dp"
+                        app:ms_alignLabels="false"
+                        android:textSize="@dimen/textsize_16sp"
+                        android:layout_marginTop="@dimen/medium_margin"
+                        android:layout_marginBottom="@dimen/margin_10" />
+
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/complete_btn_update"
+                        style="@style/App_ButtonlineblueStyle"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="@dimen/margin_20"
+                        android:text="@string/completeprofile"
+                        android:textAllCaps="false"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="@dimen/margin_20" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+    <data>
+
+    </data>
+</layout>

@@ -2,6 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/navigation_ob"
+        android:icon="@drawable/playstore"
+        android:title="Job" />
+
+    <item
         android:id="@+id/navigation_course"
         android:icon="@drawable/ic_course"
         android:title="@string/course" />

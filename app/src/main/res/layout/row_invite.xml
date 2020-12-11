@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:id="@+id/ll_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/trans_background"
+        android:orientation="vertical"
+        android:padding="2dp">
+
+
+    <RelativeLayout
+        android:id="@+id/ll_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_categoryimage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:paddingLeft="@dimen/margin_5"
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textsize_20sp"
+            android:textColor="@color/textcolor"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/margin_10"
+            android:textAlignment="center"
+            android:layout_below="@+id/iv_categoryimage"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:paddingLeft="@dimen/margin_5"
+            android:id="@+id/tv_coursedetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textsize_16sp"
+            android:textColor="@color/textcolor"
+            android:textStyle="bold"
+            android:layout_marginBottom="@dimen/medium_margin"
+            android:layout_below="@+id/tv_title"/>
+
+
+    </RelativeLayout>
+    </RelativeLayout>
+    <data></data>
+
+</layout>

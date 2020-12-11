@@ -3,16 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@color/white"
-
-
-        >
+        android:clickable="true"
+        android:background="@color/white">
 
 
         <include android:id="@+id/ll_header"
@@ -24,8 +20,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_below="@+id/ll_header"
-            android:visibility="gone"
-            >
+            android:visibility="gone">
+
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_welcome"
                 android:layout_width="match_parent"
@@ -36,8 +32,7 @@
                 android:textColor="@color/textcolor"
                 android:lineSpacingExtra="@dimen/margin_10"
                 android:layout_marginBottom="@dimen/margin_30"
-                android:textSize="@dimen/textsize_20sp"
-                />
+                android:textSize="@dimen/textsize_20sp" />
 
             <ImageView
                 android:id="@+id/tv_orgnizationname"
@@ -47,8 +42,10 @@
                 android:gravity="center"
                 android:textColor="@color/textcolor"
                 android:layout_marginBottom="@dimen/margin_30"
-                android:textSize="@dimen/textsize_20sp"
-                />
+                android:layout_marginRight="@dimen/margin_20"
+                android:layout_marginLeft="@dimen/margin_20"
+                android:layout_marginTop="@dimen/margin_10"
+                android:textSize="@dimen/textsize_20sp" />
 
 
             <androidx.appcompat.widget.AppCompatButton
@@ -60,79 +57,19 @@
                 android:layout_below="@+id/tv_orgnizationname"
                 android:layout_marginTop="@dimen/margin_20"
                 android:text="@string/takecourse"
-                android:textAllCaps="false"
-                />
+                android:textAllCaps="false" />
 
         </LinearLayout>
-
-
-        <LinearLayout android:id="@+id/llfilter"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:weightSum="6"
-            android:minHeight="@dimen/margin_30"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:layout_below="@+id/ll_header"
-            android:layout_marginLeft="@dimen/medium_margin"
-
-            android:layout_toRightOf="@+id/rating_bar"
-            >
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_centerVertical="true"
-                android:id="@+id/tv_all"
-                android:layout_weight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/textsize_14sp"
-                android:gravity="center_vertical"
-                android:layout_gravity="center_vertical"
-                android:text="@string/all"
-
-
-                android:textColor="@color/textcolor" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_running"
-                android:layout_weight="1"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/textsize_14sp"
-                android:gravity="center_vertical"
-                android:layout_gravity="center_vertical"
-                android:text="@string/running"
-                android:textColor="@color/textcolor" />
-
-
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_centerVertical="true"
-                android:id="@+id/tv_completed"
-                android:layout_weight="1"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/textsize_14sp"
-                android:gravity="center_vertical"
-                android:layout_gravity="center_vertical"
-                android:text="@string/completed"
-                android:textColor="@color/textcolor" />
-
-        </LinearLayout>
-
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_item"
-            android:layout_below="@+id/llfilter"
+            android:layout_below="@+id/ll_header"
             android:layout_marginLeft="@dimen/medium_margin"
             android:layout_marginRight="@dimen/medium_margin"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
-            android:layout_above="@+id/cardview"
-
-            />
+            android:layout_above="@+id/cardview" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardview"
@@ -142,20 +79,24 @@
             app:cardCornerRadius="5dp"
             android:elevation="0dp"
             app:cardElevation="0dp"
-            android:layout_margin="@dimen/margin_20"
-            app:cardBackgroundColor="@android:color/transparent"
-            >
-        <ImageView
-            android:id="@+id/iv_classroom_advertisment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="@dimen/size_200"
-            android:visibility="gone"
-           />
+            android:layout_marginLeft="@dimen/margin_5"
+            android:layout_marginRight="@dimen/margin_5"
+            android:layout_marginBottom="@dimen/margin_15"
+            app:cardBackgroundColor="@android:color/transparent">
+
+
+            <ImageView
+                android:id="@+id/iv_adverticement_classroom"
+                android:adjustViewBounds="true"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_100" />
+
         </androidx.cardview.widget.CardView>
+
     </RelativeLayout>
 
     <data>
 
     </data>
+
 </layout>

@@ -4,8 +4,8 @@
     xmlns:card_view="http://schemas.android.com/tools">
 
     <RelativeLayout
-        android:id="@+id/ll_main"
-        android:layout_width="match_parent"
+    android:id="@+id/ll_main"
+    android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/trans_background"
         android:orientation="vertical"
@@ -23,8 +23,9 @@
             android:id="@+id/iv_categoryimage"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
+            android:background="@drawable/placeholder_banner"/>
 
-            />
+
         <View android:id="@+id/viewline"
             android:layout_below="@+id/iv_categoryimage"
             android:layout_width="match_parent"

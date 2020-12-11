@@ -10,44 +10,34 @@
         android:layout_height="match_parent"
         android:background="@color/white"
         android:fillViewport="true"
-        android:visibility="visible"
-        >
-
+        android:visibility="visible">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
-
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:id="@+id/layouttop"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/size_100"
                 android:layout_alignParentTop="true"
-                android:gravity="center"
-                >
+                android:layout_margin="@dimen/margin_20"
+                android:gravity="center">
+
                 <ImageView
                     android:id="@+id/iv_free"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/free"
-android:adjustViewBounds="true"                    />
-
-
-
-
-
-
+                    android:adjustViewBounds="true" />
 
             </LinearLayout>
-
 
             <View
                 android:id="@+id/view1"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/size_70" android:layout_below="@+id/layouttop"
-                />
+                android:layout_height="@dimen/size_20"
+                android:layout_below="@+id/layouttop" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_reg"
@@ -57,9 +47,7 @@ android:adjustViewBounds="true"                    />
                 android:gravity="center"
                 android:text="@string/free_register"
                 android:textColor="@color/textcolor"
-                android:textSize="@dimen/textsize_16sp"
-               />
-
+                android:textSize="@dimen/textsize_16sp" />
 
 
                 <androidx.appcompat.widget.AppCompatEditText
@@ -71,7 +59,6 @@ android:adjustViewBounds="true"                    />
                     android:layout_marginLeft="@dimen/medium_margin"
                     android:layout_marginRight="@dimen/medium_margin"
                     android:drawablePadding="@dimen/padding_10"
-
                     android:theme="@style/TextLabel"
                     android:layout_below="@+id/tv_reg"
                     android:imeOptions="actionNext"
@@ -82,10 +69,6 @@ android:adjustViewBounds="true"                    />
                     android:textColor="@color/textcolor" />
 
 
-
-
-
-
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/inmobileno"
                 android:layout_width="match_parent"
@@ -93,7 +76,7 @@ android:adjustViewBounds="true"                    />
                 android:hint="@string/mobileno"
                 android:imeOptions="actionNext"
                 android:layout_marginTop="@dimen/medium_margin"
-android:drawableLeft="@drawable/ic_phone"
+                android:drawableLeft="@drawable/ic_phone"
                 android:drawablePadding="@dimen/padding_10"
                 android:inputType="number|textNoSuggestions"
                 android:layout_marginLeft="@dimen/medium_margin"
@@ -101,11 +84,15 @@ android:drawableLeft="@drawable/ic_phone"
                 android:background="@drawable/rounde_rectangle"
                 android:theme="@style/TextLabel"
                 android:textColor="@color/textcolor"
-                android:layout_below="@+id/infirstname"
-                />
+                android:layout_below="@+id/infirstname" />
 
+            <RelativeLayout
+                android:id="@+id/relativeShowPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/inmobileno">
 
-            <androidx.appcompat.widget.AppCompatEditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/inpassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -115,22 +102,36 @@ android:drawableLeft="@drawable/ic_phone"
                     android:layout_marginTop="@dimen/medium_margin"
                     android:layout_marginLeft="@dimen/medium_margin"
                     android:layout_marginRight="@dimen/medium_margin"
-                    android:layout_below="@+id/inmobileno"
                     android:inputType="textPassword"
-                android:drawablePadding="@dimen/padding_10"
-                android:drawableLeft="@drawable/ic_lock"
-                android:textColor="@color/textcolor" />
+                    android:drawablePadding="@dimen/padding_10"
+                    android:drawableLeft="@drawable/ic_lock"
+                    android:textColor="@color/textcolor" />
+
+                <CheckBox
+                    android:id="@+id/check_box"
+                    android:layout_width="@dimen/margin_30"
+                    android:layout_height="@dimen/margin_30"
+                    android:layout_alignParentTop="true"
+                    android:button="@drawable/check_boss_visible"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginRight="@dimen/margin_30"/>
 
 
+            </RelativeLayout>
 
-
+            <RelativeLayout
+                android:id="@+id/relativeConfirmShowPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relativeShowPassword">
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/inconfirmpassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/confirm_password"
-                    android:layout_below="@+id/inpassword"
                     android:inputType="textPassword"
                     android:theme="@style/TextLabel"
                     android:background="@drawable/rounde_rectangle"
@@ -139,25 +140,48 @@ android:drawableLeft="@drawable/ic_phone"
                     android:layout_marginRight="@dimen/medium_margin"
                     android:textColor="@color/textcolor"
                     android:drawablePadding="@dimen/padding_10"
-
                     android:drawableLeft="@drawable/ic_lock"/>
 
+                <CheckBox
+                    android:id="@+id/check_box_visible"
+                    android:layout_width="@dimen/margin_30"
+                    android:layout_height="@dimen/margin_30"
+                    android:layout_alignParentTop="true"
+                    android:button="@drawable/check_boss_visible"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginRight="@dimen/margin_30"/>
 
 
+            </RelativeLayout>
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/infriendCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/friendcode"
+                android:layout_below="@+id/relativeConfirmShowPassword"
+                android:inputType="text"
+                android:theme="@style/TextLabel"
+                android:background="@drawable/rounde_rectangle"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:layout_marginLeft="@dimen/medium_margin"
+                android:layout_marginRight="@dimen/medium_margin"
+                android:textColor="@color/textcolor"
+                android:drawablePadding="@dimen/padding_10"
+                android:drawableLeft="@drawable/ic_friendcode"/>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnCreateaccount"
                 style="@style/App_ButtonlineblueStyle"
                 android:layout_width="match_parent"
-                android:layout_below="@+id/inconfirmpassword"
+                android:layout_below="@+id/infriendCode"
                 android:layout_marginTop="@dimen/margin_20"
                 android:text="@string/signup_title"
                 android:layout_marginLeft="@dimen/medium_margin"
                 android:layout_marginRight="@dimen/medium_margin"
-                android:textAllCaps="false"
-                />
-
-
+                android:textAllCaps="false" />
 
 
             <LinearLayout
@@ -165,8 +189,7 @@ android:drawableLeft="@drawable/ic_phone"
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/cardview"
                 android:layout_marginBottom="@dimen/margin_10"
-                android:gravity="center"
-                >
+                android:gravity="center">
 
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -174,8 +197,9 @@ android:drawableLeft="@drawable/ic_phone"
                     android:layout_height="wrap_content"
                     android:text="@string/youhaveaccount"
                     android:textColor="@color/textcolor"
-
                     android:textSize="@dimen/textsize_14sp" />
+
+
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -183,11 +207,9 @@ android:drawableLeft="@drawable/ic_phone"
                     android:id="@+id/tv_signin"
                     android:textColor="#ff272e"
                     android:layout_marginLeft="5dp"
-
                     android:textSize="@dimen/textsize_14sp" />
+
             </LinearLayout>
-
-
 
 
             <androidx.cardview.widget.CardView
@@ -201,17 +223,16 @@ android:drawableLeft="@drawable/ic_phone"
                 android:layout_marginLeft="@dimen/margin_5"
                 android:layout_marginRight="@dimen/margin_5"
                 android:layout_marginBottom="@dimen/margin_5"
-                app:cardBackgroundColor="@android:color/transparent"
-                >
+                app:cardBackgroundColor="@android:color/transparent">
 
 
                 <ImageView
                     android:id="@+id/iv_adverticement"
                     android:adjustViewBounds="true"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/size_100"
+                    android:layout_height="@dimen/size_100" />
 
-                    />
+
             </androidx.cardview.widget.CardView>
 
 
