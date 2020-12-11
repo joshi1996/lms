@@ -1,0 +1,20 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.antonKozyriatskyi:CircularProgressIndicator:1.2.2@aar">
+    <ANNOTATIONS>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/68bb7715430d3a423fd3d565445e9210/jetified-CircularProgressIndicator-1.2.2/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2334db27a816e04269eb6f25693a7854/jetified-CircularProgressIndicator-1.2.2/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/68bb7715430d3a423fd3d565445e9210/jetified-CircularProgressIndicator-1.2.2/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/68bb7715430d3a423fd3d565445e9210/jetified-CircularProgressIndicator-1.2.2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/68bb7715430d3a423fd3d565445e9210/jetified-CircularProgressIndicator-1.2.2/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2334db27a816e04269eb6f25693a7854/jetified-CircularProgressIndicator-1.2.2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2334db27a816e04269eb6f25693a7854/jetified-CircularProgressIndicator-1.2.2/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2334db27a816e04269eb6f25693a7854/jetified-CircularProgressIndicator-1.2.2/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.antonKozyriatskyi/CircularProgressIndicator/1.2.2/c5e503aedd85f2fe38de1d1f1e537c5694f62307/CircularProgressIndicator-1.2.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

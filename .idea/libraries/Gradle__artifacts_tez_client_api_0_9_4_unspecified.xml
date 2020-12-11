@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: artifacts:tez-client-api-0.9.4:unspecified">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/tez-client-api-0.9.4/build/.transforms/288ba0393d44fcfc66f304a26c3d7c6f/jetified-tez-client-api-0.9.4/AndroidManifest.xml" />
+      <root url="jar://$PROJECT_DIR$/tez-client-api-0.9.4/build/.transforms/288ba0393d44fcfc66f304a26c3d7c6f/jetified-tez-client-api-0.9.4/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/tez-client-api-0.9.4/build/.transforms/288ba0393d44fcfc66f304a26c3d7c6f/jetified-tez-client-api-0.9.4/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
